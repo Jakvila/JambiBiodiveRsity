@@ -43,15 +43,26 @@ folderlist <- c( 3, 12, 13, 15, 22, 24, 25, 29, 34, 37, 39,
 
 library(openxlsx)
 
+# survey542 renamed manually to "survey541.xlsx" --> replacement made,
+# but document name wasn't changed
+
+setwd(file.path("P:/R-Kurs/Biodiversitas/3")) 
+biodiv_dat <- read.xlsx(paste("survey", 3, ".xlsx", sep="")) # create first dataset
+
+#rbind loop 
 
 for(i in folderlist){
-  
+
   setwd(file.path("P:/R-Kurs/Biodiversitas/",i ))
-     biodiv_dat <- rbind(read.xlsx(paste("survey", i, ".xlsx", sep="")))
- 
+  x <-  read.xlsx(paste("survey", i+1, ".xlsx", sep=""))
+    
+    for (j in folderlist){
+      y <- read.xlsx(paste("survey", j, ".xlsx", sep=""))
+    }
+  
+  biodiv_dat <- rbind(x,y)
 }
 
-  
 
 biodiv_dat$X2 <- biodiv_dat$X3
 biodiv_dat$X3 <- NULL
