@@ -72,23 +72,24 @@ setwd(file.path("P:/R-Kurs/Biodiversitas/3"))
 biodiv_dat <- read.xlsx(paste("survey", 3, ".xlsx", sep="")) # create first dataset
 
 #rbind loop 
+x <-  read.xlsx(paste("survey", 3, ".xlsx", sep=""))
+x$hhid <- 3
 
-for(i in folderlist){
 
-  setwd(file.path("P:/R-Kurs/Biodiversitas/",i ))
-  x <-  read.xlsx(paste("survey", i, ".xlsx", sep=""))
+for(i in n){
   
-    for(j in n){
-      setwd(file.path("P:/R-Kurs/Biodiversitas/",j ))  
-      x <- rbind.fill(x, read.xlsx(paste("survey", j, ".xlsx", sep="")))
-    }
+  setwd(file.path("P:/R-Kurs/Biodiversitas/",i ))
+  
+  x <- rbind.fill(x, read.xlsx(paste("survey", i, ".xlsx", sep="")))
+        
+  x$hhid[is.na(x$hhid)] <- i
 }
 
 
-biodiv_dat$X2 <- biodiv_dat$X3
-biodiv_dat$X3 <- NULL
-biodiv_dat <- biodiv_dat[!(is.na(biodiv_dat$X2)),]
-colnames(biodiv_dat) <- c('species_name', 'abundance')
+x$X2 <- x$X3
+x$X3 <- NULL
+x <- x[!(is.na(x$X2)),]
+colnames(x) <- c('species_name', 'abundance')
   
   
 
