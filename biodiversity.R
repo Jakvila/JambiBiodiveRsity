@@ -72,7 +72,8 @@ setwd(file.path("P:/R-Kurs/Biodiversitas/3"))
 biodiv_dat <- read.xlsx(paste("survey", 3, ".xlsx", sep="")) # create first dataset
 
 #rbind loop 
-x <-  read.xlsx(paste("survey", 3, ".xlsx", sep=""))
+x <-  read.xlsx(paste("survey", 3, ".xlsx", sep=""),
+                startRow = 1, colNames = FALSE )
 x$hhid <- 3
 
 
@@ -80,7 +81,8 @@ for(i in n){
   
   setwd(file.path("P:/R-Kurs/Biodiversitas/",i ))
   
-  x <- rbind.fill(x, read.xlsx(paste("survey", i, ".xlsx", sep="")))
+  x <- rbind.fill(x, read.xlsx(paste("survey", i, ".xlsx", sep=""),
+                               startRow = 1, colNames = FALSE))
         
   x$hhid[is.na(x$hhid)] <- i
 }
@@ -89,10 +91,14 @@ for(i in n){
 x$X2 <- x$X3
 x$X3 <- NULL
 x <- x[!(is.na(x$X2)),]
-colnames(x) <- c('species_name', 'abundance')
-  
-  
+colnames(x) <- c('species_name', 'abundance', 'hhid')
 
+biodiv_dat_jambi_2018 <- x
+  
+  
+library(RStata)
+
+stata("codebook Adiantum.latifolium", data.out=TRUE, stata.version = 14)
 
 
 
