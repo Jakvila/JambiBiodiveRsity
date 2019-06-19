@@ -96,9 +96,11 @@ colnames(x) <- c('species_name', 'abundance', 'hhid')
 biodiv_dat_jambi_2018 <- x
   
   
-library(RStata)
+setwd("//ug-uyst-ba-cifs.student.uni-goettingen.de/home/users/j.latzko/Desktop/Master_thesis/bernie_stuff")
+library(openxlsx)
+household_list <- read.xlsx("HouseholdList_merge_2015.xlsx")
 
-stata("codebook Adiantum.latifolium", data.out=TRUE, stata.version = 14)
+merge_attempt1 <- merge(biodiv_dat_jambi_2018, household_list, by="hhid")
 
 
 
