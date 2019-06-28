@@ -98,9 +98,19 @@ biodiv_dat_jambi_2018 <- x
   
 setwd("//ug-uyst-ba-cifs.student.uni-goettingen.de/home/users/j.latzko/Desktop/Master_thesis/bernie_stuff")
 library(openxlsx)
-household_list <- read.xlsx("HouseholdList_merge_2015.xlsx")
+household_list <- read.xlsx("farmer_plot_table_edited.xlsx")
+
+# manually edited the excel sheet, deleted the irrelevant
+# columns, added the plot ID and crop name to the replacement plots
+
+colnames(household_list) <- c('regency','village','hhid','plotID','crop') 
 
 merge_attempt1 <- merge(biodiv_dat_jambi_2018, household_list, by="hhid")
+
+# 16 observations lost
+
+# MAKE DIVERSITY INDICATORS
+
 
 
 
