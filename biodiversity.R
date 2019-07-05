@@ -105,12 +105,25 @@ household_list <- read.xlsx("farmer_plot_table_edited.xlsx")
 
 colnames(household_list) <- c('regency','village','hhid','plotID','crop') 
 
-merge_attempt1 <- merge(biodiv_dat_jambi_2018, household_list, by="hhid")
+VegetationData2018 <- merge(biodiv_dat_jambi_2018, household_list, by="hhid")
+VegetationData2018$year <- 2018 
 
+write.csv(VegetationData2018, file="VegetationData2018.csv")
 # 16 observations lost
+
+# Fuzzy string matching
+library(stargazeR)
+table(VegetationData2018$species_name)
+
+agrep("Asystasia gangetica", VegetationData2018$species_name)
 
 # MAKE DIVERSITY INDICATORS
 
+setwd("//ug-uyst-ba-cifs.student.uni-goettingen.de/home/users/j.latzko/Desktop/Master_thesis/bernie_stuff")
+
+VegetationData <- read.csv("Vegetation.csv")
+
+library(data)
 
 
 
