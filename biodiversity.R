@@ -1,5 +1,10 @@
-#### Biodiversity data merge
-
+############################################################
+#### Biodiversity data merge ###############################
+############################################################
+# Biodiversity collected from August - October 2018 ########
+# Code written by Jakob Vincent Latzko #####################
+# Department of Agricultural Economics and Rural Development
+############################################################
 
 
 
@@ -39,7 +44,7 @@ folderlist <- c( 3, 12, 13, 15, 22, 24, 25, 29, 34, 37, 39,
                  672, 675, 676, 678, 681, 687, 690, 695, 698,
                  699)
 
-n <- c( 12, 13, 15, 22, 24, 25, 29, 34, 37, 39,
+n <-        c( 12, 13, 15, 22, 24, 25, 29, 34, 37, 39,
         39, 40, 44, 46, 47, 54, 56, 57, 60, 63, 70,
         71, 74, 76, 80, 83, 84, 89, 116:118, 125,
         126, 128, 169, 170, 173, 175, 181, 183, 191, 
@@ -68,60 +73,77 @@ library(plyr)
 # survey542 renamed manually to "survey541.xlsx" --> replacement made,
 # but document name wasn't changed
 
-setwd(file.path("P:/R-Kurs/Biodiversitas/3")) 
-biodiv_dat <- read.xlsx(paste("survey", 3, ".xlsx", sep="")) # create first dataset
+  setwd(file.path("P:/R-Kurs/Biodiversitas/3")) 
+    biodiv_dat <- read.xlsx(paste("survey", 3, ".xlsx", sep="")) # create first dataset
 
 #rbind loop 
-x <-  read.xlsx(paste("survey", 3, ".xlsx", sep=""),
+  x <-  read.xlsx(paste("survey", 3, ".xlsx", sep=""),
                 startRow = 1, colNames = FALSE )
-x$hhid <- 3
+  x$hhid <- 3
 
 
-for(i in n){
+  for(i in n){
   
   setwd(file.path("P:/R-Kurs/Biodiversitas/",i ))
   
-  x <- rbind.fill(x, read.xlsx(paste("survey", i, ".xlsx", sep=""),
+    x <- rbind.fill(x, read.xlsx(paste("survey", i, ".xlsx", sep=""),
                                startRow = 1, colNames = FALSE))
         
-  x$hhid[is.na(x$hhid)] <- i
-}
+    x$hhid[is.na(x$hhid)] <- i
+  }
 
 
-x$X2 <- x$X3
-x$X3 <- NULL
-x <- x[!(is.na(x$X2)),]
-colnames(x) <- c('species_name', 'abundance', 'hhid')
+  x$X2 <- x$X3
+  x$X3 <- NULL
+  x <- x[!(is.na(x$X2)),] # this is necessary, as many assistants entered the data
+                          # not consistently in the second, but also sometimes in the
+                          # third column of the spreadsheet. We correct for that
+                          # with this code.
+  
+    colnames(x) <- c('SpeciesName', 'Abundance', 'hid')
 
-biodiv_dat_jambi_2018 <- x
+  biodiv_dat_jambi_2018 <- x
   
   
-setwd("//ug-uyst-ba-cifs.student.uni-goettingen.de/home/users/j.latzko/Desktop/Master_thesis/bernie_stuff")
+  setwd("//ug-uyst-ba-cifs.student.uni-goettingen.de/home/users/j.latzko/Desktop/Master_thesis/bernie_stuff")
 library(openxlsx)
-household_list <- read.xlsx("farmer_plot_table_edited.xlsx")
 
-# manually edited the excel sheet, deleted the irrelevant
-# columns, added the plot ID and crop name to the replacement plots
+  household_list <- read.xlsx("farmer_plot_table_edited.xlsx")
+    # manually edited the excel sheet, deleted the irrelevant
+    # columns, added the plot ID and crop name to the replacement plots
+    colnames(household_list) <- c('regency','village','hid','plotID','crop') 
 
-colnames(household_list) <- c('regency','village','hhid','plotID','crop') 
+  VegetationData2018 <- merge(biodiv_dat_jambi_2018, household_list, by="hid")
+    colnames(VegetationData2018) <- c('hid', 'SpeciesName', 'Abundance', 'regency','village','pid', 'crop') 
 
-VegetationData2018 <- merge(biodiv_dat_jambi_2018, household_list, by="hhid")
-VegetationData2018$year <- 2018 
+  VegetationData2018$wave <- 2018 
 
-write.csv(VegetationData2018, file="VegetationData2018.csv")
-# 16 observations lost
+    write.csv(VegetationData2018, file="VegetationData2018.csv")
+    # 16 observations lost
 
-# Fuzzy string matching
+    # Fuzzy string matching
 library(stargazeR)
-table(VegetationData2018$species_name)
+  table(VegetationData2018$species_name)
 
-agrep("Asystasia gangetica", VegetationData2018$species_name)
+
+  for (i in agrep("Asystasia gangetica", VegetationData2018$SpeciesName)){
+      VegetationData2018$SpeciesName[i]<- "Asystasia gangetica"
+   }
+    
+  agrep("Clidemia hirta", VegetationData2018$SpeciesName)       
+  
+  # An example for a loop which corrects the species names which were not named correctly.
+  # It would certainly be possible to write a nested loop over all the species names in a list
+  # but some of the species names on the survey are also quite fuzzy.
+  
+  
+View(VegetationData2018)
 
 # MAKE DIVERSITY INDICATORS
 
 setwd("//ug-uyst-ba-cifs.student.uni-goettingen.de/home/users/j.latzko/Desktop/Master_thesis/bernie_stuff")
 
-VegetationData <- read.csv("Vegetation.csv")
+  VegetationData <- read.csv("Vegetation.csv")
 
 library(data)
 
