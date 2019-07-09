@@ -128,13 +128,92 @@ library(stargazeR)
 
   for (i in agrep("Asystasia gangetica", VegetationData2018$SpeciesName)){
       VegetationData2018$SpeciesName[i]<- "Asystasia gangetica"
-   }
-    
-  agrep("Clidemia hirta", VegetationData2018$SpeciesName)       
+  }
   
-  # An example for a loop which corrects the species names which were not named correctly.
+    # An example for a loop which corrects the species names which were not named correctly.
   # It would certainly be possible to write a nested loop over all the species names in a list
-  # but some of the species names on the survey are also quite fuzzy.
+  # but some of the species names on the survey spreadsheet are also quite fuzzy.
+  
+  for (i in agrep("Centotheca lappacea", VegetationData2018$SpeciesName)){
+    VegetationData2018$SpeciesName[i]<- "Centotheca lappacea"
+  }
+    VegetationData2018$SpeciesName[607] <- "Centotheca lappacea"
+    VegetationData2018$SpeciesName[789] <- "Centotheca lappacea" #manual changes due to  agrep not grasping the right name
+  
+  for (i in agrep("Cyrtococcum patens", VegetationData2018$SpeciesName)){
+      VegetationData2018$SpeciesName[i]<- "Cyrtococcum patens"
+  }
+    
+  for (i in agrep("Endospermum diadenum", VegetationData2018$SpeciesName)){
+      VegetationData2018$SpeciesName[i]<- "Endospermum diadenum"
+  }
+    VegetationData2018$SpeciesName[78] <- "Endospermum diadenum"
+    VegetationData2018$SpeciesName[239] <- "Endospermum diadenum"
+    VegetationData2018$SpeciesName[1002] <- "Endospermum diadenum"
+    
+  for (i in agrep("Hevea Brasiliensis", VegetationData2018$SpeciesName)){
+      VegetationData2018$SpeciesName[i]<- "Hevea Brasiliensis"
+  }
+  
+  for (i in agrep("Imperata cylindrica", VegetationData2018$SpeciesName)){
+      VegetationData2018$SpeciesName[i]<- "Imperata cylindrica"
+  }
+  
+  for (i in agrep("Lasianthus inaequalis", VegetationData2018$SpeciesName)){
+      VegetationData2018$SpeciesName[i]<- "Lasianthus inaequalis"
+  }
+    VegetationData2018$SpeciesName[331] <- "Like Lasianthus inaequalis"
+   
+  for (i in agrep("Leptaspis Urceolata", VegetationData2018$SpeciesName)){
+      VegetationData2018$SpeciesName[i]<- "Leptaspis urceolata"
+  }
+    VegetationData2018$SpeciesName[77] <- "Leptaspis urceolata"
+    VegetationData2018$SpeciesName[95] <- "Leptaspis urceolata"
+    VegetationData2018$SpeciesName[113] <- "Leptaspis urceolata"
+    VegetationData2018$SpeciesName[204] <- "Leptaspis urceolata"
+    
+  for (i in agrep("Mallotus peltatus", VegetationData2018$SpeciesName)){
+     VegetationData2018$SpeciesName[i]<- "Mallotus peltatus"
+  }
+  
+  for (i in agrep("Mangga", VegetationData2018$SpeciesName)){
+      VegetationData2018$SpeciesName[i]<- "Mangifera indica"
+  }
+  
+  VegetationData2018$SpeciesName[801] <- "Melastoma malabathricum"
+  
+  for (i in agrep("Mimosa", VegetationData2018$SpeciesName)){
+    VegetationData2018$SpeciesName[i]<- "Mimosa pudica"
+  }  
+  for (i in agrep("Molinera latifolia", VegetationData2018$SpeciesName)){
+    VegetationData2018$SpeciesName[i]<- "Molinera latifolia"
+  }
+  for (i in agrep("MussaendaÂ frondosa", VegetationData2018$SpeciesName)){
+    VegetationData2018$SpeciesName[i]<- "Mussaenda frondosa"
+  }
+  for (i in agrep("Ottochlosa nodosa", VegetationData2018$SpeciesName)){
+    VegetationData2018$SpeciesName[i]<- "Ottochloa nodosa"
+  }
+  for (i in agrep("Paspalum dilatatum", VegetationData2018$SpeciesName)){
+    VegetationData2018$SpeciesName[i]<- "Paspalum dilatatum"
+  }
+  for (i in agrep("Polygala", VegetationData2018$SpeciesName)){
+    VegetationData2018$SpeciesName[i]<- "Polygala paniculata"
+  }
+  for (i in agrep("Rothmania", VegetationData2018$SpeciesName)){
+    VegetationData2018$SpeciesName[i]<- "Rothmannia macrophylla"
+  }
+  for (i in agrep("Salomonia cantoniensis", VegetationData2018$SpeciesName)){
+    VegetationData2018$SpeciesName[i]<- "Salomonia cantoniensis"
+  }
+  for (i in agrep("Vittaria elongata", VegetationData2018$SpeciesName)){
+    VegetationData2018$SpeciesName[i]<- "Vittaria elongata"
+  }
+  
+  
+  agrep("Clidemia hirta", VegetationData2018$SpeciesName)
+  agrep("Leptaspis urceolata", VegetationData2018$SpeciesName)
+  agrep("Acmella paniculata", VegetationData2018$SpeciesName)
   
   
 View(VegetationData2018)
