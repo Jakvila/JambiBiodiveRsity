@@ -212,9 +212,29 @@ library(openxlsx)
   
 View(VegetationData2018)
 
-# MAKE DIVERSITY INDICATORS
+# add the household codes to the dataset
+  setwd("//ug-uyst-ba-cifs.student.uni-goettingen.de/home/users/j.latzko/Desktop/Master_thesis/bernie_stuff")
+    HHcodes <- read.csv("hhcodes.csv", sep=";")
+    
+    hhcodes2012 <- HHcodes[!(HHcodes$wave==2015),]
+    hhcodes2015 <- HHcodes[!(HHcodes$wave==2012),]
+    
+    HHcodes <- merge(hhcodes2015, hhcodes2012, by="HHCode")
 
-setwd("//ug-uyst-ba-cifs.student.uni-goettingen.de/home/users/j.latzko/Desktop/Master_thesis/bernie_stuff")
+    HHcodes$hid <- HHcodes$hid.x
+    HHcodes$wave.x <- NULL
+    HHcodes$hid.x <- NULL
+    HHcodes$wave.y <- NULL
+    HHcodes$hid.y <- NULL
+    
+merge_attempt2 <- merge(VegetationData2018, HHcodes, by="hid", all.x = T)
+    
+    # this shows us a problem which we will get if we want to establish a panel. The hhcodes 
+    # and the hhid's are not perfectly matchable. A better identified table is needed.
+    
+    merge_attempt2 <- merge(VegetationData2018, hhcodes, by="hid")
+    
+# MAKE DIVERSITY INDICATORS
 
   VegetationData <- read.csv("Vegetation.csv")
 
