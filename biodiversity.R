@@ -115,16 +115,13 @@ library(openxlsx)
 
   VegetationData2018 <- merge(biodiv_dat_jambi_2018, household_list, by="hid")
     colnames(VegetationData2018) <- c('hid', 'SpeciesName', 'Abundance', 'regency','village','pid', 'crop') 
-
-  VegetationData2018$wave <- 2018 
-
+          # 16 observations lost
+  
+    VegetationData2018$wave <- 2018 
     write.csv(VegetationData2018, file="VegetationData2018.csv")
-    # 16 observations lost
+   
 
     # Fuzzy string matching
-library(stargazeR)
-  table(VegetationData2018$species_name)
-
 
   for (i in agrep("Asystasia gangetica", VegetationData2018$SpeciesName)){
       VegetationData2018$SpeciesName[i]<- "Asystasia gangetica"
@@ -210,10 +207,7 @@ library(stargazeR)
     VegetationData2018$SpeciesName[i]<- "Vittaria elongata"
   }
   
-  
-  agrep("Clidemia hirta", VegetationData2018$SpeciesName)
-  agrep("Leptaspis urceolata", VegetationData2018$SpeciesName)
-  agrep("Acmella paniculata", VegetationData2018$SpeciesName)
+  write.csv(VegetationData2018, file="VegetationData2018.csv")
   
   
 View(VegetationData2018)
