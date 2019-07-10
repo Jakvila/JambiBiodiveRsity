@@ -76,7 +76,7 @@ library(plyr)
   setwd(file.path("P:/R-Kurs/Biodiversitas/3")) 
     biodiv_dat <- read.xlsx(paste("survey", 3, ".xlsx", sep="")) # create first dataset
 
-#rbind loop 
+# rbind loop 
   x <-  read.xlsx(paste("survey", 3, ".xlsx", sep=""),
                 startRow = 1, colNames = FALSE )
   x$hhid <- 3
@@ -227,18 +227,36 @@ View(VegetationData2018)
     HHcodes$wave.y <- NULL
     HHcodes$hid.y <- NULL
     
-merge_attempt2 <- merge(VegetationData2018, HHcodes, by="hid", all.x = T)
+  VegetationData2018 <- merge(VegetationData2018, HHcodes, by="hid", all.x = T)
     
     # this shows us a problem which we will get if we want to establish a panel. The hhcodes 
     # and the hhid's are not perfectly matchable. A better identified table is needed.
+    # For the moment, all the available HHcodes were matched to the new 2019 wave data.
     
-    merge_attempt2 <- merge(VegetationData2018, hhcodes, by="hid")
+  VegetationData <- read.csv("Vegetation.csv")
+  
+  VegetationData <- rbind.fill(VegetationData, VegetationData2018)
+  write.csv(VegetationData, file="VegetationDataComplete.csv")
+
+
+    
+ # idea for seminar paper: show the total number of species counted on all the plots per year.
+  # number has reduced substantially
     
 # MAKE DIVERSITY INDICATORS
 
-  VegetationData <- read.csv("Vegetation.csv")
+  library(vegan)
+  library(tidyr)
+  library(dplyr)
+  
+  matrix_wide_2018 <- VegetationData2018
+  matrix_wide_2018 <- select(matrix_wide_2018, hid, SpeciesName, Abundance)
+  
+  spread(matrix_wide_2018, SpeciesName, Abundance, fill=NA)
+  
 
-library(data)
+  
+
 
 
 
