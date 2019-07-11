@@ -22,7 +22,7 @@ setwd("P:/R-Kurs/Biodiversitas/12")
 
 
 folderlist <- c( 3, 12, 13, 15, 22, 24, 25, 29, 34, 37, 39,
-                 39, 40, 44, 46, 47, 54, 56, 57, 60, 63, 70,
+                 40, 44, 46, 47, 54, 56, 57, 60, 63, 70,
                  71, 74, 76, 80, 83, 84, 89, 116:118, 125,
                  126, 128, 169, 170, 173, 175, 181, 183, 191, 
                  196, 197, 200, 201, 204, 207, 209, 210, 220,
@@ -45,7 +45,7 @@ folderlist <- c( 3, 12, 13, 15, 22, 24, 25, 29, 34, 37, 39,
                  699)
 
 n <-        c( 12, 13, 15, 22, 24, 25, 29, 34, 37, 39,
-        39, 40, 44, 46, 47, 54, 56, 57, 60, 63, 70,
+        40, 44, 46, 47, 54, 56, 57, 60, 63, 70,
         71, 74, 76, 80, 83, 84, 89, 116:118, 125,
         126, 128, 169, 170, 173, 175, 181, 183, 191, 
         196, 197, 200, 201, 204, 207, 209, 210, 220,
@@ -105,7 +105,7 @@ library(plyr)
   biodiv_dat_jambi_2018 <- x
   
   
-  setwd("//ug-uyst-ba-cifs.student.uni-goettingen.de/home/users/j.latzko/Desktop/Master_thesis/bernie_stuff")
+  setwd("//ug-uyst-ba-cifs.student.uni-goettingen.de/home/users/j.latzko/Desktop/R_assignment/indo_stuff")
 library(openxlsx)
 
   household_list <- read.xlsx("farmer_plot_table_edited.xlsx")
@@ -213,7 +213,7 @@ library(openxlsx)
 View(VegetationData2018)
 
 # add the household codes to the dataset
-  setwd("//ug-uyst-ba-cifs.student.uni-goettingen.de/home/users/j.latzko/Desktop/Master_thesis/bernie_stuff")
+  setwd("//ug-uyst-ba-cifs.student.uni-goettingen.de/home/users/j.latzko/Desktop/R_assignment/indo_stuff")
     HHcodes <- read.csv("hhcodes.csv", sep=";")
     
     hhcodes2012 <- HHcodes[!(HHcodes$wave==2015),]
@@ -245,16 +245,31 @@ View(VegetationData2018)
     
 # MAKE DIVERSITY INDICATORS
 
-  library(vegan)
-  library(tidyr)
+  setwd("//ug-uyst-ba-cifs.student.uni-goettingen.de/home/users/j.latzko/Desktop/R_assignment")
   library(dplyr)
   
   matrix_wide_2018 <- VegetationData2018
   matrix_wide_2018 <- select(matrix_wide_2018, hid, SpeciesName, Abundance)
   
-  spread(matrix_wide_2018, SpeciesName, Abundance, fill=NA)
+  library(permute)
+  library(lattice)
+  library(vegan)
+  library(data.table)
+  library(reshape2)
+  
+  matrix_wide_2018 = data.table(matrix_wide_2018)
+  matrix_wide_2018 = matrix_wide_2018[, .(hid, SpeciesName, Abundance)]
+  
+  matrix
+  
+  # Check for duplicate entries
+  Duplicated = matrix_wide_2018[duplicated(matrix_wide_2018 [, .(hid, SpeciesName)])==T,]
   
 
+  # 20 found, all copies
+  #....
+  
+  matrix_wide_2018 <- dcast(data = matrix_wide_2018,  hid ~ SpeciesName, value.var = "Abundance")
   
 
 
