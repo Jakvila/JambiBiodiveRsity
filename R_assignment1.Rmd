@@ -1,0 +1,75 @@
+---
+title: "Data Analysis with R in Agricultural Economics"
+output: pdf_document
+number_sections: true
+---
+
+
+![](Uni_Goettingen_Siegel.png){width=50%}
+![](rstudiologo.png){width=50%}
+
+
+\textbf{Student Name:} Jakob Vincent Latzko 
+
+\textbf{Matr. - Nr:} 21344724
+
+\textbf{Master program:} Development Economics
+
+\textbf{Semester:} 5th
+
+
+
+# Mayday for future: Analyzing biodiversity effects on rubber and oil-palm plots in Jambi, Indonesia
+
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+## Abstract:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\newpage
+
+## Introduction
+This seminar paper was written as a final paper of the course Data Analysis with R in Agricultural Economics which took place in March, 2019.  Not withstanding the other topic options, e.g. Time Series, Panel Data or gravity models in trade, I chose to pursue my own seminar paper project. The data I use is about species, more precisely, plant richness in rubber and palm-oil plantations. More details about the data characteristics are provided in the first section of the main part.  
+
+The C01-project is only one of many projects that are conducted as part of the Collaborative Research Centre 990.
+The University of Göttingen describes its own research project as follows:
+
+> EFForTS is a Collaborative Research Centre 990 funded by the DFG Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) that investigates the ecological and socio-economic effects of such transformation based on research carried out in the Bukit Duabelas and Hutan Harapan area in Jambi province focusing on smallholder systems.
+
+
+Especially Palm-oil has been widely discussed in the media and it is often mentioned as one of the principal causes of rainforest clearing. The data we collected is highly relevant from an interdisciplinary point of view
+
+
+The research question asks: *Is there a negative trend of plant richness described by the data?*
+
+
+
+
+
+
+```{r cars}
+summary(cars)
+```
+
+## Data structure
+
+The data was collected in three rounds from 2012 to 2018 in Jambi Province in Sumatera, Indonesia. The last round, 2018, was collected by my colleague Bernhard Dalheimer, our Indonesian assistants and me. The C01 plant
+
+
+The size of the subsample is around 200. Although in each round around 20 additional plots - which cannot be used for a panel - were included. 
+$\frac{1}{4}$
+
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
