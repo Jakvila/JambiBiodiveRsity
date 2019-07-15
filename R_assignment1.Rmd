@@ -1,7 +1,8 @@
 ---
-title: "Data Analysis with R in Agricultural Economics"
-output: pdf_document
-number_sections: true
+title: "Data Analysis with R in Agricultural Economics - Mayday for future: Analyzing biodiversity effects on rubber and oil-palm plots in Jambi, Indonesia"
+output:
+  pdf_document:
+    number_sections: true
 ---
 
 
@@ -18,15 +19,13 @@ number_sections: true
 \textbf{Semester:} 5th
 
 
-
-# Mayday for future: Analyzing biodiversity effects on rubber and oil-palm plots in Jambi, Indonesia
-
-
 ```{r, include=FALSE}
 options(tinytex.verbose = TRUE)
 ```
 
-## Abstract:
+\abstract{Biodiversity loss due to transformation of tropical rainforest into utilizable land is one of the most relevant environmental topics of our time.}
+
+\textbf{Keywords:} *Rubber, palm oil, Jambi, Indonesia, small-scale farming, species richness, lowland rainforest transformation*
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -34,42 +33,131 @@ knitr::opts_chunk$set(echo = TRUE)
 
 \newpage
 
-## Introduction
-This seminar paper was written as a final paper of the course Data Analysis with R in Agricultural Economics which took place in March, 2019.  Not withstanding the other topic options, e.g. Time Series, Panel Data or gravity models in trade, I chose to pursue my own seminar paper project. The data I use is about species, more precisely, plant richness in rubber and palm-oil plantations. More details about the data characteristics are provided in the first section of the main part.  
+# Introduction
+This seminar paper was written as a final paper of the course *Data Analysis with R in Agricultural Economics* which took place in March, 2019.  Not withstanding the other topic options, e.g. Time Series, Panel Data or gravity models in trade, I chose to pursue my own seminar paper project. The data I use is about species, more precisely, plant richness in rubber and palm-oil plantations. More details about the data characteristics are provided in the first section of the main part.  
 
 The C01-project is only one of many projects that are conducted as part of the Collaborative Research Centre 990.
 The University of Göttingen describes its own research project as follows:
 
-> EFForTS is a Collaborative Research Centre 990 funded by the DFG Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) that investigates the ecological and socio-economic effects of such transformation based on research carried out in the Bukit Duabelas and Hutan Harapan area in Jambi province focusing on smallholder systems.
+> "EFForTS is a Collaborative Research Centre 990 funded by the DFG Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) that investigates the ecological and socio-economic effects of such transformation based on research carried out in the Bukit Duabelas and Hutan Harapan area in Jambi province focusing on smallholder systems."
 
 
-Especially Palm-oil has been widely discussed in the media and it is often mentioned as one of the principal causes of rainforest clearing. The data we collected is highly relevant from an interdisciplinary point of view
+Especially Palm-oil has been widely discussed in the media and it is often mentioned as one of the principal causes of rainforest clearing. The data we collected is highly relevant from an interdisciplinary point of view, bringing ecological, agricultural and socioeconomic problem sets together.
 
 
 The research question asks: *Is there a negative trend of plant richness described by the data?*
 
 
 
+```{r echo=FALSE, results='asis', message=FALSE}
+library(knitr)
+library(data.table )
+
+VegetationData2018 <- read.csv("VegetationData2018.csv")
+
+SpeciesNumbers <- setDT(VegetationData2018)[, .(count= uniqueN(SpeciesName)), by = hid]
+names(SpeciesNumbers) <- c("household ID", "Number of species")
+
+kable(SpeciesNumbers[1:10,], row.names = FALSE, caption="Data extract")
 
 
-
-```{r cars}
-summary(cars)
 ```
+
+
+# Main part
 
 ## Data structure
 
-The data was collected in three rounds from 2012 to 2018 in Jambi Province in Sumatera, Indonesia. The last round, 2018, was collected by my colleague Bernhard Dalheimer, our Indonesian assistants and me. The C01 plant
+  The data was collected in three rounds from 2012 to 2018 in Jambi Province in Sumatera, Indonesia. The last round, 2018, was collected by my colleague Bernhard Dalheimer, our Indonesian assistants and me. The C01 sample represents a subsample within the major C-group's sample of 831 plots of around 750 small-scale farmer households. Its size is around 200 households, 
+whereas in each round c.a. 20 additional plots - which then cannot be used for the panel data analysis - were included.
+
+  The C-group sample was designed as a representative sample of the small-scale farmers in Jambi province, Indonesia. $\frac{3}{4}$ of the households are rubber farmers, roughly $\frac{1}{4}$ of the sample produces palm oil. The rubber farmers can be divided into jungle rubber and rubber plantation groups. The distinction of these two groups plays an important role concerning biodiversity on the plots, I will continue pointing this out in the biodiversity section. About the sampling framework, the responsible researchers (Faust et al. 2013: 16) wrote the following:
+
+> *"Five regencies, which comprise most of the lowland transformation systems of Jambi province, were  selected  purposively.  These  regencies  are  Sarolangun, Bungo  and  Tebo  as  the  ones  in  proximity  of  the  Bukit  Duableas  National  Park  as  well  as  Batanghari  and  Muaro  Jambi, representing the Harapan Rainforest research area. In order to capture geographical disparity and regional  diversity,  the  number  of  villages  per  regency  and  district  was  fixed.  From  each  of  the  selected regencies, five districts and four rural villages from each of these districts were selected randomly." *
+
+Within this research framework, the C-groups are rather concerned about socioeconomic data, whilst the other supergroups are closer to natural sciences. The data collection for C01 consisted in:
+
+* plant richness data collection
+* soil data collection
+* soil sample processing
+
+Within this context, the field study lived up to its name, as for the data collection it was necessary to reach a specific spot deep into the rubber or palm oil plantations. We arrived to the exact same spot either thanks to GPS navigation, or to the farmers' memories about the last C01 visit. Subsequently, the 25m² square was built up and all the plants in this quadrant were counted and listed.
+
+In the 2018 round, slightly less than 10% of the sample could not be visited, either because the farmer was unavailable or because he gave up his plot. 
 
 
-The size of the subsample is around 200. Although in each round around 20 additional plots - which cannot be used for a panel - were included. 
-$\frac{1}{4}$
+```{r echo=FALSE, results='asis', message=FALSE}
+library(knitr)
+library(data.table )
 
+VegetationDataComplete <- read.csv("VegetationDataComplete.csv")
 
-You can also embed plots, for example:
+SpeciesNumbers <- setDT(VegetationDataComplete)[, .(count= uniqueN(SpeciesName)), by = wave]
+SpeciesNumbers <- SpeciesNumbers[order(wave),]
+names(SpeciesNumbers) <- c("Wave", "Number of different species")
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+kable(SpeciesNumbers, row.names = FALSE, caption="")
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Literature insight
+Both rubber and oil palm farmers have in common that most of them do not depend entirely on the earnings of their agricultural activity; many of them pursue further economic activities and have e.g. a small retail trade or work as a mechanic.
+
+## Biodiversity measures
+
+```{r echo=FALSE, message=FALSE}
+library(ggplot2)
+obs_number <- nrow(VegetationDataComplete[VegetationDataComplete$wave==2012])
+obs_number <- rbind(nrow(VegetationDataComplete[VegetationDataComplete$wave==2015]), obs_number)
+obs_number <- rbind(nrow(VegetationDataComplete[VegetationDataComplete$wave==2018]), obs_number)
+obs_number <- as.data.frame(obs_number)
+
+
+colnames(obs_number) <- "Number of observations"
+rownames(obs_number) <- NULL
+obs_number$wave <- c(2018, 2015, 2012)
+
+ggplot(data=obs_number, aes(x=obs_number$wave, y=obs_number$`Number of observations`)) +   geom_line(linetype="dashed") + geom_point(color="darkgreen", size=2) +
+    ggtitle("Total number of C01 observations") +
+    theme_classic() + scale_x_continuous(name="Wave") +
+    scale_y_continuous(name="Observations", limits=c(0, 4000)) + 
+    geom_text(aes(label=obs_number$`Number of observations`),hjust=0, vjust=0)
+
+
+```
+
+```{r echo=FALSE}
+library(raster)
+library(data.table)
+library(ggplot2)
+library(ggmap)
+library(mapproj)
+library(maptools)
+library(grid)
+library(openxlsx)
+require("rgdal") # requires sp, will use proj.4 if installed
+require("maptools")
+require("ggplot2")
+require("plyr")
+library(ggrepel)
+library(ggsn)
+Indo = getData("GADM", country = "Indonesia", level = 2)
+FarmerPlot2018 <- read.xlsx("Farmer & Plot Table.xlsx")
+Jambi = Indo[Indo$NAME_1 == "Jambi",]
+plot(Jambi)
+ggplot()
+# points(C01PlotTable$CoordinateE, C01PlotTable$CoordinateS, cex = 2)
+
+```
+
+
+## Discussion of the findings
+
+# Conclusion
+
+
+
+
+
+
+
