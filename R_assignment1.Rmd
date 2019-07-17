@@ -49,6 +49,16 @@ The research question asks: *Is there a negative trend of plant richness describ
 
 
 
+
+
+
+# Main part
+
+## Data structure
+
+  The data was collected in three rounds from 2012 to 2018 in Jambi Province in Sumatera, Indonesia. The last round, 2018, was collected by my colleague Bernhard Dalheimer, our Indonesian assistants and me. The C01 sample represents a subsample within the major C-group's sample of 831 plots of around 750 small-scale farmer households. Its size is around 200 households, 
+whereas in each round c.a. 20 additional plots - which then cannot be used for the panel data analysis - were included.
+
 ```{r echo=FALSE, results='asis', message=FALSE}
 library(knitr)
 library(data.table )
@@ -63,19 +73,11 @@ kable(SpeciesNumbers[1:10,], row.names = FALSE, caption="Data extract")
 
 ```
 
-
-# Main part
-
-## Data structure
-
-  The data was collected in three rounds from 2012 to 2018 in Jambi Province in Sumatera, Indonesia. The last round, 2018, was collected by my colleague Bernhard Dalheimer, our Indonesian assistants and me. The C01 sample represents a subsample within the major C-group's sample of 831 plots of around 750 small-scale farmer households. Its size is around 200 households, 
-whereas in each round c.a. 20 additional plots - which then cannot be used for the panel data analysis - were included.
-
   The C-group sample was designed as a representative sample of the small-scale farmers in Jambi province, Indonesia. $\frac{3}{4}$ of the households are rubber farmers, roughly $\frac{1}{4}$ of the sample produces palm oil. The rubber farmers can be divided into jungle rubber and rubber plantation groups. The distinction of these two groups plays an important role concerning biodiversity on the plots, I will continue pointing this out in the biodiversity section. About the sampling framework, the responsible researchers (Faust et al. 2013: 16) wrote the following:
 
 > *"Five regencies, which comprise most of the lowland transformation systems of Jambi province, were  selected  purposively.  These  regencies  are  Sarolangun, Bungo  and  Tebo  as  the  ones  in  proximity  of  the  Bukit  Duableas  National  Park  as  well  as  Batanghari  and  Muaro  Jambi, representing the Harapan Rainforest research area. In order to capture geographical disparity and regional  diversity,  the  number  of  villages  per  regency  and  district  was  fixed.  From  each  of  the  selected regencies, five districts and four rural villages from each of these districts were selected randomly." *
 
-Within this research framework, the C-groups are rather concerned about socioeconomic data, whilst the other supergroups are closer to natural sciences. The data collection for C01 consisted in:
+In this research framework, the C-groups are rather concerned about socioeconomic data, whilst the other supergroups are closer to natural sciences. The data collection for C01 consisted in:
 
 * plant richness data collection
 * soil data collection
@@ -94,18 +96,41 @@ VegetationDataComplete <- read.csv("VegetationDataComplete.csv")
 
 SpeciesNumbers <- setDT(VegetationDataComplete)[, .(count= uniqueN(SpeciesName)), by = wave]
 SpeciesNumbers <- SpeciesNumbers[order(wave),]
-names(SpeciesNumbers) <- c("Wave", "Number of different species")
+names(SpeciesNumbers) <- c("Wave", "Species")
 
-kable(SpeciesNumbers, row.names = FALSE, caption="")
+kable(SpeciesNumbers, row.names = FALSE, caption="Total number of species per year")
 
-```
+``` 
 
 ## Literature insight
 Both rubber and oil palm farmers have in common that most of them do not depend entirely on the earnings of their agricultural activity; many of them pursue further economic activities and have e.g. a small retail trade or work as a mechanic.
 
-## Biodiversity measures
+Sayer et al. (2012) formulates the four truths about palm oil, which "should be acknowledged in any meaningful debate about the topic:
 
-```{r echo=FALSE, message=FALSE}
+1. the demand for oil palm will continue to increase in response to a growing and increasingly affluent global population
+2. oil palm is one of the most profitable land uses in the humid tropics
+3. oil palm plantations store more carbon than alternative agricultural land uses
+4. native biodiversity within oil palm plantations is far lower than in the natural forests they often replace
+
+However, biodiversity is always reducing substantially regarding any type of large scale agriculture which uses the same land than the former rainforest. Also rubber, banana or cocoa plantations have a negative biodiversity balance regarding autochthonous rainforests. 
+
+
+## Methodology
+
+Beyond descriptive statistics which are presented in this paper, a more analytical approach is the use of biodiversity measures. For our C01 dataset the use of species richness indices such as the Simpson and the Shannon Index are the most appropriate. For the mapping I will use the Shannon index, which is for the sake of comparableness of the plots or, in this case, of the regency means. The formula of the Shannon index is as follows: 
+\begin{equation}
+H = - \sum_{i=1}^s p_i \ln{p_i}
+\end{equation}
+
+Where *s* is the total number of species - in our case, we apply the total number of species found in each round. *p* is the proportion - as long as the formula is applied at plot level - of the species *i* found in one plot over all species. This proportion is then multiplied by the natural logarithm of the same.
+The index accounts for both abundance and evenness of the species found and the outcome of this index in one plot is comparable to the one of another plot in the same round.
+
+\begin{equation}
+D = \frac{1}{\sum_{i=1}^s p_i^2}
+\end{equation}
+
+
+```{r echo=FALSE, fig.height=4.5, fig.width=8, message=FALSE}
 library(ggplot2)
 obs_number <- nrow(VegetationDataComplete[VegetationDataComplete$wave==2012])
 obs_number <- rbind(nrow(VegetationDataComplete[VegetationDataComplete$wave==2015]), obs_number)
@@ -126,7 +151,8 @@ ggplot(data=obs_number, aes(x=obs_number$wave, y=obs_number$`Number of observati
 
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE}
+
 library(raster)
 library(data.table)
 library(ggplot2)
@@ -141,11 +167,108 @@ require("ggplot2")
 require("plyr")
 library(ggrepel)
 library(ggsn)
-Indo = getData("GADM", country = "Indonesia", level = 2)
+
 FarmerPlot2018 <- read.xlsx("Farmer & Plot Table.xlsx")
+Vegetation2018 <- read.csv("VegetationData2018.csv")
+
+Vegetation2015 <- read.csv("VegetationDataComplete.csv")
+Vegetation2015 <- Vegetation2015[ ! Vegetation2015$wave %in% c(2012,2018), ]
+Vegetation2015  <- merge(Vegetation2015, FarmerPlot2018, by="hid")
+
+Vegetation2012 <- read.csv("Vegetation2012_with-hid.csv")
+Vegetation2012 <- merge(Vegetation2012, FarmerPlot2018, by="hid")
+
+
+SpeciesinRegency <- setDT(Vegetation2018)[, .(count= uniqueN(SpeciesName)), by = regency]
+SpeciesinRegency2012 <- setDT(Vegetation2012)[, .(count= uniqueN(SpeciesName)), by = Regency]
+SpeciesinRegency2015 <- setDT(Vegetation2015)[, .(count= uniqueN(SpeciesName)), by = Regency]
+
+names(SpeciesinRegency) <- c("regency", "SpeciesNumber")
+names(SpeciesinRegency2015) <- c("regency", "SpeciesNumber")
+names(SpeciesinRegency2012) <- c("regency", "SpeciesNumber")
+
+# add the IDs of the regencies manually.. necessary as we only have data for 5, not for all 11 regencies
+SpeciesinRegency$id <- c(473, 465, 472, 467, 468)
+SpeciesinRegency2015$id <- c(473, 465, 472, 467, 468)
+SpeciesinRegency2012$id <- c(473, 465, 472, 467, 468)
+
+# download the Jambi map #############################################################################
+Indo = getData("GADM", country = "Indonesia", level = 2)
 Jambi = Indo[Indo$NAME_1 == "Jambi",]
-plot(Jambi)
-ggplot()
+Jambi@data$id <- rownames(Jambi@data)
+
+regencyID <- cbind.data.frame(as.numeric(Jambi@data$id),Jambi@data$NAME_2)
+names(regencyID) <- c("id", "regency")
+SpeciesinRegency <- merge(regencyID, SpeciesinRegency, all.x=TRUE, by="id")
+SpeciesinRegency$regency.y <- NULL
+SpeciesinRegency$regency <- SpeciesinRegency$regency.x
+SpeciesinRegency$regency.x <- NULL
+
+# create a data.frame from our spatial object
+
+JambiPoints <- fortify(Jambi, regency = "id")
+
+
+# merge the "fortified" data with the data from our spatial object
+JambiDF <- merge(JambiPoints, Jambi@data, by = "id")
+head(JambiDF)
+
+JambiDF1 <- merge(JambiDF, SpeciesinRegency, by="id",all.x=T)
+
+ggplot(data=JambiDF1, aes(x=long, y=lat, group= group, fill=SpeciesNumber)) +
+         geom_polygon(color="white") + scale_fill_gradient(low = "#FFCC66", high = "darkgreen",
+          space = "Lab", na.value = "grey50", guide = "colourbar",
+          aesthetics = "fill") + ggtitle("2018")
+#######################################################################################################
+# Same for 2015
+regencyID <- cbind.data.frame(as.numeric(Jambi@data$id),Jambi@data$NAME_2)
+names(regencyID) <- c("id", "regency")
+SpeciesinRegency2015 <- merge(regencyID, SpeciesinRegency2015, all.x=TRUE, by="id")
+SpeciesinRegency2015$regency.y <- NULL
+SpeciesinRegency2015$regency <- SpeciesinRegency2015$regency.x
+SpeciesinRegency2015$regency.x <- NULL
+
+# create a data.frame from our spatial object
+
+JambiPoints <- fortify(Jambi, regency = "id")
+
+
+# merge the "fortified" data with the data from our spatial object
+JambiDF <- merge(JambiPoints, Jambi@data, by = "id")
+head(JambiDF)
+
+JambiDF1 <- merge(JambiDF, SpeciesinRegency2015, by="id",all.x=T)
+
+ggplot(data=JambiDF1, aes(x=long, y=lat, group= group, fill=SpeciesNumber)) +
+         geom_polygon(color="white") + scale_fill_gradient(low = "#FFCC66", high = "darkgreen",
+          space = "Lab", na.value = "grey50", guide = "colourbar",
+          aesthetics = "fill") + ggtitle("2015")
+#######################################################################################################
+# and 2012
+regencyID <- cbind.data.frame(as.numeric(Jambi@data$id),Jambi@data$NAME_2)
+names(regencyID) <- c("id", "regency")
+SpeciesinRegency2012 <- merge(regencyID, SpeciesinRegency2012, all.x=TRUE, by="id")
+SpeciesinRegency2012$regency.y <- NULL
+SpeciesinRegency2012$regency <- SpeciesinRegency2012$regency.x
+SpeciesinRegency2012$regency.x <- NULL
+
+# create a data.frame from our spatial object
+
+JambiPoints <- fortify(Jambi, regency = "id")
+
+
+# merge the "fortified" data with the data from our spatial object
+JambiDF <- merge(JambiPoints, Jambi@data, by = "id")
+head(JambiDF)
+
+JambiDF1 <- merge(JambiDF, SpeciesinRegency2012, by="id",all.x=T)
+
+ggplot(data=JambiDF1, aes(x=long, y=lat, group= group, fill=SpeciesNumber)) +
+         geom_polygon(color="white") + scale_fill_gradient(low = "#FFCC66", high = "darkgreen",
+          space = "Lab", na.value = "grey50", guide = "colourbar",
+          aesthetics = "fill") + ggtitle("2012")
+ 
+
 # points(C01PlotTable$CoordinateE, C01PlotTable$CoordinateS, cex = 2)
 
 ```
