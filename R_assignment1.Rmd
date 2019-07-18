@@ -1,8 +1,10 @@
 ---
-title: "Data Analysis with R in Agricultural Economics - Mayday for future: Analyzing biodiversity effects on rubber and oil-palm plots in Jambi, Indonesia"
+title: "Data Analysis with R in Agricultural Economics - Indodiversity: Analyzing biodiversity effects on rubber and oil-palm plots in Jambi, Indonesia"
 output:
   pdf_document:
     number_sections: true
+
+fontsize: 12pt
 ---
 
 
@@ -42,13 +44,10 @@ The University of Göttingen describes its own research project as follows:
 > "EFForTS is a Collaborative Research Centre 990 funded by the DFG Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) that investigates the ecological and socio-economic effects of such transformation based on research carried out in the Bukit Duabelas and Hutan Harapan area in Jambi province focusing on smallholder systems."
 
 
-Especially Palm-oil has been widely discussed in the media and it is often mentioned as one of the principal causes of rainforest clearing. The data we collected is highly relevant from an interdisciplinary point of view, bringing ecological, agricultural and socioeconomic problem sets together.
+Especially Palm-oil has been widely discussed in the media and it is often mentioned as one of the principal causes of rainforest clearing. The data we collected is highly relevant from an interdisciplinary point of view, bringing ecological, agricultural and socioeconomic problem sets together. 
 
 
 The research question asks: *Is there a negative trend of plant richness described by the data?*
-
-
-
 
 
 
@@ -59,19 +58,6 @@ The research question asks: *Is there a negative trend of plant richness describ
   The data was collected in three rounds from 2012 to 2018 in Jambi Province in Sumatera, Indonesia. The last round, 2018, was collected by my colleague Bernhard Dalheimer, our Indonesian assistants and me. The C01 sample represents a subsample within the major C-group's sample of 831 plots of around 750 small-scale farmer households. Its size is around 200 households, 
 whereas in each round c.a. 20 additional plots - which then cannot be used for the panel data analysis - were included.
 
-```{r echo=FALSE, results='asis', message=FALSE}
-library(knitr)
-library(data.table )
-
-VegetationData2018 <- read.csv("VegetationData2018.csv")
-
-SpeciesNumbers <- setDT(VegetationData2018)[, .(count= uniqueN(SpeciesName)), by = hid]
-names(SpeciesNumbers) <- c("household ID", "Number of species")
-
-kable(SpeciesNumbers[1:10,], row.names = FALSE, caption="Data extract")
-
-
-```
 
   The C-group sample was designed as a representative sample of the small-scale farmers in Jambi province, Indonesia. $\frac{3}{4}$ of the households are rubber farmers, roughly $\frac{1}{4}$ of the sample produces palm oil. The rubber farmers can be divided into jungle rubber and rubber plantation groups. The distinction of these two groups plays an important role concerning biodiversity on the plots, I will continue pointing this out in the biodiversity section. About the sampling framework, the responsible researchers (Faust et al. 2013: 16) wrote the following:
 
@@ -88,6 +74,49 @@ Within this context, the field study lived up to its name, as for the data colle
 In the 2018 round, slightly less than 10% of the sample could not be visited, either because the farmer was unavailable or because he gave up his plot. 
 
 
+
+```{r echo=FALSE, results='asis', message=FALSE, fig.height=4.5, fig.width=8, warning=F}
+library(knitr)
+library(data.table)
+library(ggplot2)
+
+VegetationData2018 <- read.csv("VegetationData2018.csv")
+
+SpeciesNumbers <- setDT(VegetationData2018)[, .(count= uniqueN(SpeciesName)), by = hid]
+names(SpeciesNumbers) <- c("household ID", "Number of species")
+
+kable(SpeciesNumbers[1:10,], row.names = FALSE, caption="Data extract")
+
+VegetationDataComplete <- read.csv("VegetationDataComplete.csv")
+SpeciesNumbers2018 <- VegetationDataComplete[which(VegetationDataComplete$wave == 2018),]
+SpeciesNumbers2018 <- setDT(SpeciesNumbers2018)[, .(count= uniqueN(SpeciesName)), by = hid]
+SpeciesNumbers2018$wave <- rep(2018, length(SpeciesNumbers2018$count))
+SpeciesNumbers2018$hid <- NULL
+
+SpeciesNumbers2015 <- VegetationDataComplete[which(VegetationDataComplete$wave == 2015),]
+SpeciesNumbers2015 <- setDT(SpeciesNumbers2015)[, .(count= uniqueN(SpeciesName)), by = hid]
+SpeciesNumbers2015$wave <- rep(2015, length(SpeciesNumbers2015$count))
+SpeciesNumbers2015$hid <- NULL
+
+SpeciesNumbers2012 <- VegetationDataComplete[which(VegetationDataComplete$wave == 2012),]
+SpeciesNumbers2012 <- setDT(SpeciesNumbers2012)[, .(count= uniqueN(SpeciesName)), by = HHCode]
+SpeciesNumbers2012$wave <- rep(2012, length(SpeciesNumbers2012$count))
+SpeciesNumbers2012$HHCode <- NULL
+
+SpeciesNumbers <- rbind.data.frame(SpeciesNumbers2018, SpeciesNumbers2015, SpeciesNumbers2012)
+
+SpeciesNumbers$Year <- as.factor(SpeciesNumbers$wave)
+
+ggplot(SpeciesNumbers, aes(x=count, fill=Year)) +geom_density(alpha=0.25) +ggtitle("Density of species reported per wave") + theme_classic()
+
+```
+
+Table 1 shows some examples of how many different species were usually reported per plot. We see that the range is usually from 5 to 15 species. This data is from 2018. In order to make the reported numbers comparable, Figure 1 provides us a comparison of the densities of the number of species reported. As it can be seen, the peak of the distributions are slightly above a species count of 11. Although the 2015 wave has its peak at 15 species per plot. Furthermore, the 2018 wave has a higher peak which means that the numbers of species reported are distributed closer to its peak of 10. While in 2012, 7.5% of the observations took a value around 11, in 2018 it was more than 10%.
+
+Despite the minor differences of the densities of the data collection, the three distributions are quite comparable. That becomes even clearer when considering the large darkblue area which is covered by all three density graphs.
+Now, after having performed the first glimpse at the data, we can thus state that there are no severe inconsistencies.
+
+
 ```{r echo=FALSE, results='asis', message=FALSE}
 library(knitr)
 library(data.table )
@@ -98,11 +127,17 @@ SpeciesNumbers <- setDT(VegetationDataComplete)[, .(count= uniqueN(SpeciesName))
 SpeciesNumbers <- SpeciesNumbers[order(wave),]
 names(SpeciesNumbers) <- c("Wave", "Species")
 
-kable(SpeciesNumbers, row.names = FALSE, caption="Total number of species per year")
+kable(SpeciesNumbers, row.names = FALSE, caption="Total number of species per wave")
 
 ``` 
 
-## Literature insight
+After having seen the distribution of the observations, we have a look at the total number of species reported per wave in Table 2. What is eye-catching is the proportionately high number of different species for 2015, while the 2012 and 2018 wave both report numbers that are slightly above 500. After having a look at the dataset, one finds out that the method of reporting unknown plants in the 2015 was different. For each of these an individual name was assigned with the structure "unident_x". The dataset reports more than 1000 with these names - and very few of them appear twice or thrice. Which makes the overall number of different species considerably high. In this context it might appear reasonable to talk about an outlier - which is quite likely due to the use of this naming method.
+
+Further ahead in the paper concerning the species richness indicators and the Shannon Index interpretation, this data issue becomes especially relevant.
+For the data structure we can hitherto state that all three waves might have differences - but they still remain comparable and are suitable for further analysis which will be pursued in the following parts.
+
+## Literature insight and problem set
+
 Both rubber and oil palm farmers have in common that most of them do not depend entirely on the earnings of their agricultural activity; many of them pursue further economic activities and have e.g. a small retail trade or work as a mechanic.
 
 Sayer et al. (2012) formulates the four truths about palm oil, which "should be acknowledged in any meaningful debate about the topic:
@@ -112,7 +147,20 @@ Sayer et al. (2012) formulates the four truths about palm oil, which "should be 
 3. oil palm plantations store more carbon than alternative agricultural land uses
 4. native biodiversity within oil palm plantations is far lower than in the natural forests they often replace
 
-However, biodiversity is always reducing substantially regarding any type of large scale agriculture which uses the same land than the former rainforest. Also rubber, banana or cocoa plantations have a negative biodiversity balance regarding autochthonous rainforests. 
+Biodiversity is always reducing substantially regarding any type of large scale agriculture which uses the same land than the former rainforest. Also rubber, banana or cocoa plantations have a negative biodiversity balance regarding autochthonous rainforests. 
+
+What becomes clear when reading about any of the agricultural technologies in this context, is that there is a clear trade-off. A trade-off between increasing agricultural production by expanding the cultivated area and the environmental protection 
+
+However, the productivities of palm oil is not at all at its peak. The same paper of Sayer et al. (2012) states that under favorable conditions 10-11 tons per hectar can be produced, while the average for Indonesia is only at 3.9 $\frac{t}{ha}$ and the best observed yields reaching 7-8.
+
+In this context, rubber tells a different story which might, nonetheless, be considered as the
+second side of the same coin. In Jambi province, small-scale farmers of rubber and palm oil live usually house to house. And there are many farmers who cultivate both.
+
+Without going into detail, the rubber farming has been disrupted a lot by the price collapse which happened after 2012. Although by July 2019 the price seems to be slightly increasing again, the overall tendence of the rubber price over the last years is clearly negative. Today, many rubber farmers consider changing their technology to oil palm which yields at current prices a more profitable product.
+
+Thus, the first conclusion that can be drawn out of the literature is that there is still a lot of room for improvements. The palm-oil farmers in Indonesia could potentially produce a lot more - even within their current area. Coming back to the trade-off between agriculture and environment that I discussed before: the environmental damage might well be hold at a limited level, while the production per unit of are is increased. This would permit us to hold this trade-off at the lowest possible level.
+
+The biodiversity data collected in the C01 project plays an important role for understanding the reasons behind the inefficiencies that currently exist on the plots of Jambi - both for rubber and for oil palm.
 
 
 ## Methodology
@@ -125,16 +173,21 @@ H = - \sum_{i=1}^s p_i \ln{p_i}
 Where *s* is the total number of species - in our case, we apply the total number of species found in each round. *p* is the proportion - as long as the formula is applied at plot level - of the species *i* found in one plot over all species. This proportion is then multiplied by the natural logarithm of the same.
 The index accounts for both abundance and evenness of the species found and the outcome of this index in one plot is comparable to the one of another plot in the same round.
 
+
+The formula of the Simpson index is similar:
 \begin{equation}
 D = \frac{1}{\sum_{i=1}^s p_i^2}
 \end{equation}
 
+The main difference regarding the interpretation of both indices is that the Simpson Index takes the dominance of one species on a plot into account. 
 
 ```{r echo=FALSE, fig.height=4.5, fig.width=8, message=FALSE}
 library(ggplot2)
-obs_number <- nrow(VegetationDataComplete[VegetationDataComplete$wave==2012])
-obs_number <- rbind(nrow(VegetationDataComplete[VegetationDataComplete$wave==2015]), obs_number)
-obs_number <- rbind(nrow(VegetationDataComplete[VegetationDataComplete$wave==2018]), obs_number)
+VegetationDataComplete <- read.csv("VegetationDataComplete.csv")
+
+obs_number <- length(which(VegetationDataComplete$wave==2012))
+obs_number <- rbind(length(which(VegetationDataComplete$wave==2015)), obs_number)
+obs_number <- rbind(length(which(VegetationDataComplete$wave==2018)), obs_number)
 obs_number <- as.data.frame(obs_number)
 
 
@@ -151,7 +204,19 @@ ggplot(data=obs_number, aes(x=obs_number$wave, y=obs_number$`Number of observati
 
 ```
 
-```{r echo=FALSE, message=FALSE}
+
+
+
+```{r message=FALSE, echo=FALSE}
+# in this plot I will give an overview about the most frequent plants.
+
+
+
+```
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 
 library(raster)
 library(data.table)
@@ -161,31 +226,43 @@ library(mapproj)
 library(maptools)
 library(grid)
 library(openxlsx)
+library(dplyr)
 require("rgdal") # requires sp, will use proj.4 if installed
 require("maptools")
 require("ggplot2")
 require("plyr")
 library(ggrepel)
 library(ggsn)
-
+ 
 FarmerPlot2018 <- read.xlsx("Farmer & Plot Table.xlsx")
-Vegetation2018 <- read.csv("VegetationData2018.csv")
+Vegetation2018 <- read.csv("Shannon2018.csv")
+Vegetation2015 <- read.csv("Shannon2015.csv")
+Vegetation2012 <- read.csv("Shannon2012.csv")
 
-Vegetation2015 <- read.csv("VegetationDataComplete.csv")
-Vegetation2015 <- Vegetation2015[ ! Vegetation2015$wave %in% c(2012,2018), ]
-Vegetation2015  <- merge(Vegetation2015, FarmerPlot2018, by="hid")
+hhcodes2015 <- read.csv("hhcodes2015duplicated.csv")
+  hhcodes2015$x <- NULL
+  hhcodes2015 <- distinct(hhcodes2015, hid, HHCode)
+  hhcodes2015$HHCode <- gsub("\\,", ".", hhcodes2015$HHCode)
+Vegetation2015 <- merge(hhcodes2015, Vegetation2015, by="HHCode")
 
-Vegetation2012 <- read.csv("Vegetation2012_with-hid.csv")
+# merge shannon data with the plot information
+Vegetation2015 <- merge(Vegetation2015, FarmerPlot2018, by="hid")
 Vegetation2012 <- merge(Vegetation2012, FarmerPlot2018, by="hid")
+Vegetation2018 <- merge(Vegetation2018, FarmerPlot2018, by="hid")
 
 
-SpeciesinRegency <- setDT(Vegetation2018)[, .(count= uniqueN(SpeciesName)), by = regency]
-SpeciesinRegency2012 <- setDT(Vegetation2012)[, .(count= uniqueN(SpeciesName)), by = Regency]
-SpeciesinRegency2015 <- setDT(Vegetation2015)[, .(count= uniqueN(SpeciesName)), by = Regency]
+# SpeciesinRegency <- setDT(Vegetation2018)[, .(mean= uniqueN(shannon)), by = Regency]
+# SpeciesinRegency2012 <- setDT(Vegetation2012)[, .(count= uniqueN(SpeciesName)), by = Regency]
+# SpeciesinRegency2015 <- setDT(Vegetation2015)[, .(count= uniqueN(SpeciesName)), by = Regency]
+SpeciesinRegency <- aggregate(Vegetation2018$shannon, list(Vegetation2018$Regency), mean)
+SpeciesinRegency2015 <- aggregate(Vegetation2015$shannon, list(Vegetation2015$Regency), mean)
+SpeciesinRegency2012 <- aggregate(Vegetation2012$shannon, list(Vegetation2012$Regency), mean)
 
-names(SpeciesinRegency) <- c("regency", "SpeciesNumber")
-names(SpeciesinRegency2015) <- c("regency", "SpeciesNumber")
-names(SpeciesinRegency2012) <- c("regency", "SpeciesNumber")
+
+
+names(SpeciesinRegency) <- c("regency", "Shannon")
+names(SpeciesinRegency2015) <- c("regency", "Shannon")
+names(SpeciesinRegency2012) <- c("regency", "Shannon")
 
 # add the IDs of the regencies manually.. necessary as we only have data for 5, not for all 11 regencies
 SpeciesinRegency$id <- c(473, 465, 472, 467, 468)
@@ -211,14 +288,21 @@ JambiPoints <- fortify(Jambi, regency = "id")
 
 # merge the "fortified" data with the data from our spatial object
 JambiDF <- merge(JambiPoints, Jambi@data, by = "id")
-head(JambiDF)
+invisible(head(JambiDF))
 
 JambiDF1 <- merge(JambiDF, SpeciesinRegency, by="id",all.x=T)
 
-ggplot(data=JambiDF1, aes(x=long, y=lat, group= group, fill=SpeciesNumber)) +
-         geom_polygon(color="white") + scale_fill_gradient(low = "#FFCC66", high = "darkgreen",
-          space = "Lab", na.value = "grey50", guide = "colourbar",
-          aesthetics = "fill") + ggtitle("2018")
+ggplot(data=JambiDF1, aes(x=long, y=lat, group= group, fill=Shannon)) +
+        geom_polygon(color="white") + scale_fill_gradient(limits = c(0.8,1.8),
+        low = "#FFCC66", high = "darkgreen",
+        space = "Lab", na.value = "grey50", guide = "colourbar",
+        aesthetics = "fill") + ggtitle("Shannon Index 2018") +theme_classic() +
+        theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) +
+        theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())
 #######################################################################################################
 # Same for 2015
 regencyID <- cbind.data.frame(as.numeric(Jambi@data$id),Jambi@data$NAME_2)
@@ -235,14 +319,22 @@ JambiPoints <- fortify(Jambi, regency = "id")
 
 # merge the "fortified" data with the data from our spatial object
 JambiDF <- merge(JambiPoints, Jambi@data, by = "id")
-head(JambiDF)
+invisible(head(JambiDF))
 
 JambiDF1 <- merge(JambiDF, SpeciesinRegency2015, by="id",all.x=T)
 
-ggplot(data=JambiDF1, aes(x=long, y=lat, group= group, fill=SpeciesNumber)) +
-         geom_polygon(color="white") + scale_fill_gradient(low = "#FFCC66", high = "darkgreen",
+ggplot(data=JambiDF1, aes(x=long, y=lat, group= group, fill=Shannon)) +
+         geom_polygon(color="white") + scale_fill_gradient(limits = c(0.8,1.8),
+        low = "#FFCC66", high = "darkgreen",
           space = "Lab", na.value = "grey50", guide = "colourbar",
-          aesthetics = "fill") + ggtitle("2015")
+          aesthetics = "fill") + ggtitle("Shannon Index 2015") +theme_classic() +
+        theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) +
+        theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())
+
 #######################################################################################################
 # and 2012
 regencyID <- cbind.data.frame(as.numeric(Jambi@data$id),Jambi@data$NAME_2)
@@ -259,14 +351,21 @@ JambiPoints <- fortify(Jambi, regency = "id")
 
 # merge the "fortified" data with the data from our spatial object
 JambiDF <- merge(JambiPoints, Jambi@data, by = "id")
-head(JambiDF)
+invisible(head(JambiDF))
 
 JambiDF1 <- merge(JambiDF, SpeciesinRegency2012, by="id",all.x=T)
 
-ggplot(data=JambiDF1, aes(x=long, y=lat, group= group, fill=SpeciesNumber)) +
-         geom_polygon(color="white") + scale_fill_gradient(low = "#FFCC66", high = "darkgreen",
+ggplot(data=JambiDF1, aes(x=long, y=lat, group= group, fill=Shannon)) +
+         geom_polygon(color="white") + scale_fill_gradient(limits = c(0.8,1.8),
+        low = "#FFCC66", high = "darkgreen",
           space = "Lab", na.value = "grey50", guide = "colourbar",
-          aesthetics = "fill") + ggtitle("2012")
+          aesthetics = "fill") + ggtitle("Shannon Index 2012") +theme_classic() +
+        theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) +
+        theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())
  
 
 # points(C01PlotTable$CoordinateE, C01PlotTable$CoordinateS, cex = 2)
@@ -277,7 +376,8 @@ ggplot(data=JambiDF1, aes(x=long, y=lat, group= group, fill=SpeciesNumber)) +
 ## Discussion of the findings
 
 # Conclusion
-
+While writing this paper there were more and more problem sets and data visualization schemes popping up in my head. These C01 datasets themselve have a lot more potential, especially when pointing out the differences between oil palm and rubber. Not to mention the potential of the data when combining them to socioeconomic survey data.
+Yet, given the small scale of the seminar, decisions had to be made to the detriment of some measures and in favor of others. 
 
 
 
