@@ -1,34 +1,121 @@
 ##############################################################################################
-# continuing the biodiversity-R script
+# continuing the biodiversity-R script #######################################################
+# We start with 2015 #########################################################################
+##############################################################################################
 
+library(data.table)
+library("vegan")
+source('C:/Users/jakob/OneDrive/Desktop/Universidad/R_assignment/fixHHCode.R')
 setwd("C:/Users/jakob/OneDrive/Desktop/Universidad/R_assignment")
+
+VegetationData = data.table(read.csv("Vegetation.csv"))
+
+VegetationData[, HHCode := fixHHcode(HHCode)]
+
+VegetationData = VegetationData[, .(wave, HHCode, hid, pid, SpeciesName, Abundance, Invasive)]
+
+VegetationData[, Invasive := ifelse(Invasive == 1, "Invasive", "Native")]
+VegetationData[, Abundance := as.numeric(as.character(Abundance))]
+VegetationData[, c("HHCode", "hid", "pid", "SpeciesName") := lapply(.SD, as.character), .SDcols =  c("HHCode", "hid", "pid", "SpeciesName")]
+Duplicated = VegetationData[duplicated(VegetationData[, .(HHCode, wave, SpeciesName)])==T,]
+
+duplicatedHHCodes = unique(Duplicated[, HHCode])
+
+# Wrong plot of 531.03. Weird, in 2012 it was pid 3 of this household. CO7 data says plot ID 1 is C01 plot, and Marys file says 1 as well
+# We're going with plot ID 1 in this round (Can we match it with plot ID 3 from 2012?) areas are checked
+# We do this for all cases where the wrong plot has been mistakenly surveyed.
+
+VegetationData = VegetationData[!substr(as.character(hid), 5,5) == "1",]
+# Check again for problems:
+Duplicated = VegetationData[duplicated(VegetationData[, .(HHCode, wave, SpeciesName)])==T,]
+duplicatedHHCodes = unique(Duplicated[, HHCode])
+
+# Still a lot in there. I found that there is some plot mistakes in the data (check for instance 421.01 is linked to both 510 and 516). 
+# will need to mathc back with C01Plot Data
+load("C01PlotTable.RDA")
+Veg2012= VegetationData[wave ==2012,]
+Veg2012 = Veg2012[C01PlotTable[, -c("pid")], on = c("HHCode")]
+Veg2012[, hid := i.hid]
+Veg2012=Veg2012[, -"i.hid"]
+VegetationData = VegetationData[wave == 2015,]
+VegetationData = rbind(VegetationData, Veg2012)
+VegetationData = VegetationData[C01PlotTable[, -"pid"], on = c("HHCode", "hid")]
+Duplicated = VegetationData[duplicated(VegetationData[, .(HHCode, wave, SpeciesName)])==T,]
+duplicatedHHCodes = unique(Duplicated[, HHCode])
+
+# Turns out some species have been counted twice Two options: Either assume that they have been recounted or that they are counted twice
+# It is more likely that they have been counted twice, just didnt sum them up in the field
+dropData = VegetationData[HHCode %in% duplicatedHHCodes & SpeciesName %in% Duplicated[, SpeciesName],]
+
+saveData = data.table(aggregate(data = dropData, Abundance ~ wave + HHCode + hid + SpeciesName + Invasive , max))
+
+VegetationData = VegetationData[!dropData, on = names(VegetationData)]
+saveData[, pid := NA]
+VegetationData = rbind(VegetationData, saveData[, mget(names(VegetationData))])
+Duplicated = VegetationData[duplicated(VegetationData[, .(HHCode, wave, SpeciesName)])==T,]
+duplicatedHHCodes = unique(Duplicated[, HHCode])
+
+# Finally solved all problems, continue with compilation of measures
+# Ok
+setkey(VegetationData, wave, HHCode, hid, SpeciesName)
+
+TotalAbundance = data.table(aggregate(data = VegetationData,  Abundance ~ wave + HHCode, sum, na.rm = T))
+
+InvasiveAbundance = VegetationData[Invasive == "Invasive", list(InvasiveAbundance = sum(Abundance), num = .N), by = .(HHCode, wave)]
+
+DiversityData = dcast(data = VegetationData,  wave + HHCode ~ SpeciesName, value.var = "Abundance")
+DiversityData[is.na(DiversityData)] = 0
+simpson2015 <- diversity(DiversityData[, -(1:2)], "simpson")
+
+DiversityData$HHCode <- as.numeric(DiversityData$HHCode)
+shannon2015 <- diversity(DiversityData)
+
+shannon2015 <- data.frame(shannon2015, DiversityData$HHCode)
+names(shannon2015) <- c("shannon", "HHCode")
+
+# connect the right regencies with the hids/hhcodes
+
+library(openxlsx)
+
+household_list <- read.xlsx("farmer_plot_table_edited.xlsx")
+
+# manually edited the excel sheet, deleted the irrelevant
+# columns, added the plot ID and crop name to the replacement plots
+
+colnames(household_list) <- c('regency','village','hid','plotID','crop')
+
+
+################################################################################################
+## SPECIES RICHNESS INDICES FOR 2018
 
 library(vegan)
 library(data.table)
 library(reshape2)
+library(dplyr)
 
 VegetationDataComplete <- read.csv("VegetationDataComplete.csv", stringsAsFactors = FALSE)
 matrix_wide_2018 <- VegetationDataComplete[which(VegetationDataComplete$wave == 2018),]
 
-matrix_wide_2018$hid <- as.character(matrix_wide_2018$hid)
-matrix_wide_2018$hid <- as.numeric(matrix_wide_2018$hid)
+  matrix_wide_2018$hid <- as.character(matrix_wide_2018$hid)
+  matrix_wide_2018$hid <- as.numeric(matrix_wide_2018$hid)
 
-matrix_wide_2018$Abundance <- as.character(matrix_wide_2018$Abundance)
-matrix_wide_2018$Abundance <- as.numeric(matrix_wide_2018$Abundance)
+  matrix_wide_2018$Abundance <- as.character(matrix_wide_2018$Abundance)
+  matrix_wide_2018$Abundance <- as.numeric(matrix_wide_2018$Abundance)
 
 # VegetationData2012$HHCode <- as.numeric(VegetationData2012$Abundance)
-matrix_wide_2018 = data.table(matrix_wide_2018)
-matrix_wide_2018 = matrix_wide_2018[, .(hid, SpeciesName, Abundance)]
+  matrix_wide_2018 = data.table(matrix_wide_2018)
+  matrix_wide_2018 = matrix_wide_2018[, .(hid, SpeciesName, Abundance)]
 
 # Check for duplicate entries
-Duplicated2018 = matrix_wide_2018[duplicated(matrix_wide_2018 [, .(hid, SpeciesName)])==T,]
+  Duplicated2018 = matrix_wide_2018[duplicated(matrix_wide_2018 [, .(hid, SpeciesName)])==T,]
+  matrix_wide_2018 <- distinct(matrix_wide_2018)
 
-## hhid's 44, 248, 541 
-
-# only 3 found
-
-matrix_wide_2018 <- dcast(data = matrix_wide_2018,  hid ~ SpeciesName, value.var = "Abundance")
-
+  matrix_wide_2018 <- matrix_wide_2018[!c(127, 453, 735, 2099),]
+## in rows 127, 453, 735, 2099
+  Duplicated2018 = matrix_wide_2018[duplicated(matrix_wide_2018 [, .(hid, SpeciesName)])==T,]
+  
+  matrix_wide_2018 <- dcast(data = matrix_wide_2018,  hid ~ SpeciesName, value.var = "Abundance")
+  matrix_wide_2018[is.na(matrix_wide_2018)] <- 0
 # make species richness indicators
 
 simpson2018 <- diversity(matrix_wide_2018, index="simpson")
@@ -97,70 +184,21 @@ Duplicated2012 = VegetationData2012[duplicated(VegetationData2012 [, .(hid, Spec
  
  names(shannon2012) <- c("shannon", "hid")
 
+############ bring indices to the household IDs
  
-### BERNHARD'S CODE
+ shannon2012 <- na.omit(shannon2012)
+ shannon2015 <- na.omit(shannon2015)
  
-# setkey(VegetationDataComplete, wave, HHCode, hid, SpeciesName)
-# TotalAbundance = data.table(aggregate(data = VegetationDataComplete,  Abundance ~ wave + HHCode, sum, na.rm = T))
-# InvasiveAbundance = VegetationDataComplete[Invasive == "Invasive", list(InvasiveAbundance = sum(Abundance), num = .N), by = .(HHCode, wave)]
-# DiversityData = dcast(data = VegetationDataComplete,  wave + HHCode ~ SpeciesName, value.var = "Abundance")
-# DiversityData[is.na(DiversityData)] = 0
-# simp <- diversity(DiversityData[, -(1:2)], "simpson")
-# SimpsonDiversity = data.table(wave = DiversityData[, wave], HHCode = DiversityData[, HHCode], Simpson = simp)
-# simpson <- data.frame(SimpsonDiversity, DiversityData$hid)
-
-# same for 2015 ###################################################################################################
-
-VegetationData2015 <- VegetationDataComplete[which(VegetationDataComplete$wave == 2015),]
+ mean(shannon2012$shannon)
+ mean(shannon2015$shannon)
+ mean(shannon2018$shannon)
  
- VegetationData2015 <- VegetationData2015[!is.na(VegetationData2015$hid),]
-  VegetationData2015$hid <- as.character(VegetationData2015$hid)
-    VegetationData2015$hid <- as.numeric(VegetationData2015$hid)
-  
-  VegetationData2015$Abundance <- as.character(VegetationData2015$Abundance)
-    VegetationData2015$Abundance <- as.numeric(VegetationData2015$Abundance)
-    
-# ESTOY RE PERDIDO, NO SÉ NI QUE HACER
-
-VegetationData2015 = data.table(VegetationData2015)
-VegetationData2015 = VegetationData2015[, .(hid, SpeciesName, Abundance)]
-  Duplicated2015 <- VegetationData2015[duplicated(VegetationData2015 [, .(hid, SpeciesName)])==T,]
-# 64 observations of 7 different households and of many NAs are duplicated...
-  
-  VegetationData2015$Abundance[is.na(VegetationData2015$Abundance)] <- 0
-  VegetationData2015 <- dcast(data = VegetationData2015,  hid ~ SpeciesName, value.var = "Abundance")
-VegetationData2015[is.na(VegetationData2015)] <- 0
-shannon2015 <- diversity(VegetationData2015)
-shannon2015 <- data.frame(shannon2015, VegetationData2015$hid)
-names(shannon2015) <- c("shannon", "hid")
-
-# Still some NAs for 2012 and 2015, these observations need to be dropped
-
-shannon2012 <- na.omit(shannon2012)
-shannon2015 <- na.omit(shannon2015)
-
-mean(shannon2012$shannon)
-mean(shannon2015$shannon)
-mean(shannon2018$shannon)
-
-
-write.csv(shannon2012, file = "shannon2012.csv")
-write.csv(shannon2015, file = "shannon2015.csv")
-write.csv(shannon2018, file = "shannon2018.csv")
-
-# connect the right regencies with the hids/hhcodes
-
-library(openxlsx)
-
-household_list <- read.xlsx("farmer_plot_table_edited.xlsx")
-
-# manually edited the excel sheet, deleted the irrelevant
-# columns, added the plot ID and crop name to the replacement plots
-
-colnames(household_list) <- c('regency','village','hid','plotID','crop') 
-
-shannon2015 <- merge(shannon2015, household_list, by="hid")
-
+ 
+ write.csv(shannon2012, file = "shannon2012.csv")
+ write.csv(shannon2015, file = "shannon2015.csv")
+ write.csv(shannon2018, file = "shannon2018.csv")
+ setwd("C:/Users/jakob/OneDrive/Desktop/Universidad/R_assignment")
+ 
 
 
 
