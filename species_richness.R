@@ -1,24 +1,29 @@
 ##############################################################################################
 # continuing the biodiversity-R script
 
-
 setwd("C:/Users/jakob/OneDrive/Desktop/Universidad/R_assignment")
-
-matrix_wide_2018 <- read.csv("matrix_wide_2018.csv")
 
 library(vegan)
 library(data.table)
 library(reshape2)
 
+VegetationDataComplete <- read.csv("VegetationDataComplete.csv", stringsAsFactors = FALSE)
+matrix_wide_2018 <- VegetationDataComplete[which(VegetationDataComplete$wave == 2018),]
+
+matrix_wide_2018$hid <- as.character(matrix_wide_2018$hid)
 matrix_wide_2018$hid <- as.numeric(matrix_wide_2018$hid)
+
+matrix_wide_2018$Abundance <- as.character(matrix_wide_2018$Abundance)
 matrix_wide_2018$Abundance <- as.numeric(matrix_wide_2018$Abundance)
 
-VegetationData2012$HHCode <- as.numeric(VegetationData2012$Abundance)
+# VegetationData2012$HHCode <- as.numeric(VegetationData2012$Abundance)
 matrix_wide_2018 = data.table(matrix_wide_2018)
 matrix_wide_2018 = matrix_wide_2018[, .(hid, SpeciesName, Abundance)]
 
 # Check for duplicate entries
-Duplicated = matrix_wide_2018[duplicated(matrix_wide_2018 [, .(hid, SpeciesName)])==T,]
+Duplicated2018 = matrix_wide_2018[duplicated(matrix_wide_2018 [, .(hid, SpeciesName)])==T,]
+
+## hhid's 44, 248, 541 
 
 # only 3 found
 
@@ -55,7 +60,7 @@ VegetationData2012 <- VegetationData2012[-c(1136, 2362),] # question marks as an
 
 
 VegetationData2012 <- merge(VegetationData2012, hhcodes, by="HHCode") # ~ 600 observations lost due to the merge...
-VegetationData2012$hid.x <- NULL
+VegetationData2012$hid.x <- NULL 
 VegetationData2012$hid <- VegetationData2012$hid.y
 VegetationData2012$hid.y <- NULL
 write.csv(VegetationData2012, file="Vegetation2012_with-hid.csv")
@@ -107,7 +112,8 @@ Duplicated2012 = VegetationData2012[duplicated(VegetationData2012 [, .(hid, Spec
 # same for 2015 ###################################################################################################
 
 VegetationData2015 <- VegetationDataComplete[which(VegetationDataComplete$wave == 2015),]
-
+ 
+ VegetationData2015 <- VegetationData2015[!is.na(VegetationData2015$hid),]
   VegetationData2015$hid <- as.character(VegetationData2015$hid)
     VegetationData2015$hid <- as.numeric(VegetationData2015$hid)
   
@@ -118,20 +124,14 @@ VegetationData2015 <- VegetationDataComplete[which(VegetationDataComplete$wave =
 
 VegetationData2015 = data.table(VegetationData2015)
 VegetationData2015 = VegetationData2015[, .(hid, SpeciesName, Abundance)]
-
   Duplicated2015 <- VegetationData2015[duplicated(VegetationData2015 [, .(hid, SpeciesName)])==T,]
 # 64 observations of 7 different households and of many NAs are duplicated...
   
   VegetationData2015$Abundance[is.na(VegetationData2015$Abundance)] <- 0
-  
   VegetationData2015 <- dcast(data = VegetationData2015,  hid ~ SpeciesName, value.var = "Abundance")
-
 VegetationData2015[is.na(VegetationData2015)] <- 0
-
 shannon2015 <- diversity(VegetationData2015)
-
 shannon2015 <- data.frame(shannon2015, VegetationData2015$hid)
-
 names(shannon2015) <- c("shannon", "hid")
 
 # Still some NAs for 2012 and 2015, these observations need to be dropped
