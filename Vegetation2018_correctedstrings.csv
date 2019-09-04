@@ -1,16 +1,16 @@
 "","hid","SpeciesName","Abundance","wave","additional"
-"1",3,"scleria ciliaris",30,2018,0
+"1",3,"Scleria ciliaris",30,2018,0
 "2",3,"Vittaria elongata",27,2018,0
-"3",3,"clidemia hirta",9,2018,0
+"3",3,"Clidemia hirta",9,2018,0
 "4",3,"Cyrtococcum patens",95,2018,0
 "5",3,"Centotheca lappacea",87,2018,0
 "6",3,"mirip waru",23,2018,0
-"7",3,"melastoma malabathricum",14,2018,0
+"7",3,"Melastoma malabathricum",14,2018,0
 "8",3,"Asystasia gangetica",43,2018,0
 "9",12,"Leptaspis urceolata",23,2018,0
 "10",12,"Dicranopteris linearis",12,2018,0
 "11",12,"Sauropus androgynus",6,2018,0
-"12",12,"Uncaria Cordata",4,2018,0
+"12",12,"Uncaria cordata",4,2018,0
 "13",12,"Lindsaea ensifolia",12,2018,0
 "14",12,"Asystasia gangetica",12,2018,0
 "15",12,"Clidemia hirta",76,2018,0
@@ -86,7 +86,7 @@
 "85",29,"Calopogonium mucunoides",13,2018,0
 "86",29,"Mussaenda frondosa",12,2018,0
 "87",29,"Endospermum diadenum",4,2018,0
-"88",29,"Uncaria Cordata",6,2018,0
+"88",29,"Uncaria cordata",6,2018,0
 "89",29,"Sauropus androgynus",3,2018,0
 "90",29,"Scleria ciliaris",35,2018,0
 "91",34,"Ageratum conyzoides",2,2018,0
@@ -99,7 +99,7 @@
 "98",34,"Melastoma malabathricum",18,2018,0
 "99",34,"Mirip Daun Salam",1,2018,0
 "100",34,"Clidemia hirta",35,2018,0
-"101",34,"Peperomia Pellucida",20,2018,0
+"101",34,"Peperomia pellucida",20,2018,0
 "102",34,"Paspalum dilatatum",51,2018,0
 "103",34,"Dicranopteris linearis",4,2018,0
 "104",37,"Dicranopteris linearis",5,2018,0
@@ -110,15 +110,15 @@
 "109",37,"Lindsaea ensifolia",7,2018,0
 "110",37,"Cyrtococcum patens",2320,2018,0
 "111",37,"Lygodium salicifolium",6,2018,0
-"112",37,"endospermum",1,2018,0
-"113",37,"Daun Bergerigi",2,2018,0
-"114",37,"helminthostachys",5,2018,0
-"115",37,"leptaspis",821,2018,0
+"112",37,"Endospermum diadenum",1,2018,0
+"113",37,"daun bergerigi",2,2018,0
+"114",37,"Helminthostachys zeylanica",5,2018,0
+"115",37,"Leptaspis urceolata",821,2018,0
 "116",37,"Mirip Daun Jati",1,2018,0
 "117",37,"Daun Hati",25,2018,0
 "118",39,"Asystasia gangetica",116,2018,0
 "119",39,"Clidemia hirta",130,2018,0
-"120",39,"leptaspis",342,2018,0
+"120",39,"Leptaspis urceolata",342,2018,0
 "121",39,"Lindsaea ensifolia",11,2018,0
 "122",39,"Ageratum conyzoides",56,2018,0
 "123",39,"Mangifera indica",15,2018,0
@@ -147,12 +147,12 @@
 "146",44,"Clidemia hirta",130,2018,0
 "147",44,"Lindsaea ensifolia",5,2018,0
 "148",46,"Phylanthus urinaria",3,2018,0
-"149",46,"Rhynchospora Colorata",23,2018,0
+"149",46,"Rhynchospora colorata",23,2018,0
 "150",46,"Asystasia gangetica",69,2018,0
 "151",46,"Rolandra fruticosa",5,2018,0
 "152",46,"Clidemia hirta",3,2018,0
 "153",46,"Jamur Tanah",2,2018,0
-"154",46,"Spermaococe cristata",4,2018,0
+"154",46,"Spermacoce cristata",4,2018,0
 "155",46,"Mirip Waru",1,2018,0
 "156",47,"Imperata cylindrica",43,2018,0
 "157",47,"Lindsaea ensifolia",3,2018,0
@@ -167,7 +167,7 @@
 "166",47,"Calopogonium mucunoides",1,2018,0
 "167",47,"Jambu bol",1,2018,0
 "168",47,"Asystasia gangetica",243,2018,0
-"169",47,"Scoparia Dulcis",2,2018,0
+"169",47,"Scoparia dulcis",2,2018,0
 "170",54,"Asystasia gangetica",51,2018,0
 "171",54,"Ageratum conyzoides",15,2018,0
 "172",54,"Melastoma malabathricum",36,2018,0
@@ -178,7 +178,7 @@
 "177",54,"Mimosa pudica",7,2018,0
 "178",54,"Polygala paniculata",15,2018,0
 "179",54,"Paspalum dilatatum",9,2018,0
-"180",56,"Ophioglossum Pendulum",3,2018,0
+"180",56,"Ophioglossum pendulum",3,2018,0
 "181",56,"Sauropus androgynus",6,2018,0
 "182",56,"Clidemia hirta",564,2018,0
 "183",56,"Leptaspis urceolata",32,2018,0
@@ -188,29 +188,17 @@
 "187",56,"Lindsaea ensifolia",12,2018,0
 "188",56,"Axonopus compressus",24,2018,0
 "189",57,"Cyrtococcum patens",2052,2018,0
-"190",57,"Cyrtococcum patens",2052,2018,0
 "191",57,"Clidemia hirta",5,2018,0
-"192",57,"Clidemia hirta",5,2018,0
 "193",57,"Mangifera indica",2,2018,0
-"194",57,"Mangifera indica",2,2018,0
 "195",57,"Blechnum orientale",3,2018,0
-"196",57,"Blechnum orientale",3,2018,0
 "197",57,"Lygodium salicifolium",8,2018,0
-"198",57,"Lygodium salicifolium",8,2018,0
-"199",57,"sirih-sirihan",1,2018,0
-"200",57,"sirih-sirihan",1,2018,0
+"199",57,"Sirih Sirihan",1,2018,0
 "201",57,"Macaranga bancana",1,2018,0
-"202",57,"Macaranga bancana",1,2018,0
 "203",57,"Lygodium circinatum",5,2018,0
-"204",57,"Lygodium circinatum",5,2018,0
 "205",57,"Sauropus androgynus",2,2018,0
-"206",57,"Sauropus androgynus",2,2018,0
 "207",57,"Leptaspis urceolata",40,2018,0
-"208",57,"Leptaspis urceolata",40,2018,0
 "209",57,"LN: Laos- Laosan",30,2018,0
-"210",57,"LN: Laos- Laosan",30,2018,0
 "211",57,"Mussaenda frondosa",1,2018,0
-"212",57,"Mussaenda frondosa",1,2018,0
 "213",60,"Asplenium nidus",1,2018,0
 "214",60,"Axonopus compressus",2300,2018,0
 "215",60,"Clidemia hirta",200,2018,0
@@ -234,13 +222,13 @@
 "233",63,"Melastoma malabathricum",15,2018,0
 "234",63,"Leptaspis urceolata",24,2018,0
 "235",63,"Asystasia gangetica",63,2018,0
-"236",63,"Cleome Rutidosperma",34,2018,0
+"236",63,"Cleome rutidosperma",34,2018,0
 "237",63,"Mimosa pudica",15,2018,0
 "238",63,"Ageratum conyzoides",25,2018,0
 "239",70,"Asystasia gangetica",181,2018,0
 "240",70,"Scleria ciliaris",57,2018,0
 "241",70,"Cyrtococcum patens",425,2018,0
-"242",70,"leptspis urceolata",20,2018,0
+"242",70,"Leptaspis urceolata",20,2018,0
 "243",70,"Molinera latifolia",1,2018,0
 "244",70,"Endospermum diadenum",1,2018,0
 "245",71,"Salomonia cantoniensis",18,2018,0
@@ -250,7 +238,7 @@
 "249",71,"Melastoma affine",2,2018,0
 "250",71,"MS: Rumput gajah",260,2018,0
 "251",71,"Rolandra fruticosa",26,2018,0
-"252",71,"tumbuhan paku",33,2018,0
+"252",71,"Tumbuhan Paku",33,2018,0
 "253",71,"carex rupestris",92,2018,0
 "254",71,"lumut",3520,2018,0
 "255",71,"Legazpia polygonoides",2520,2018,0
@@ -269,7 +257,7 @@
 "268",76,"Phylanthus urinaria",3,2018,0
 "269",76,"Asystasia gangetica",215,2018,0
 "270",76,"Clidemia hirta",15,2018,0
-"271",76,"endospermum",22,2018,0
+"271",76,"Endospermum diadenum",22,2018,0
 "272",76,"daun bergerigi",3,2018,0
 "273",76,"Daun Sirih",3,2018,0
 "274",76,"Mirip Daun Durian",1,2018,0
@@ -278,7 +266,7 @@
 "277",76,"Lygodium sp.",6,2018,0
 "278",76,"Melastoma malabathricum",2,2018,0
 "279",80,"Axonopus compressus",63,2018,0
-"280",80,"Merremia Umbellata",2,2018,0
+"280",80,"Merremia umbellata",2,2018,0
 "281",80,"Goniophlebium verrucosum",6,2018,0
 "282",80,"LN: Pulai",1,2018,0
 "283",80,"Clidemia hirta",56,2018,0
@@ -307,22 +295,22 @@
 "306",83,"Lygodium circinatum",14,2018,0
 "307",83,"Hevea Brasiliensis",5,2018,0
 "308",83,"Awar awar",1,2018,0
-"309",83,"Passiflora Foetida",1,2018,0
+"309",83,"Passiflora foetida",1,2018,0
 "310",83,"Sauropus androgynus",12,2018,0
 "311",83,"Vittaria elongata",49,2018,0
-"312",83,"Cleome Rutidosperma",113,2018,0
+"312",83,"Cleome rutidosperma",113,2018,0
 "313",84,"Melastoma malabathricum",4,2018,0
 "314",84,"Oxalis barrelieri",32,2018,0
 "315",84,"Taenitis blechnoides",33,2018,0
-"316",84,"Cleome Rutidosperma",96,2018,0
+"316",84,"Cleome rutidosperma",96,2018,0
 "317",84,"Lygodium salicifolium",8,2018,0
 "318",84,"Pityrogramma Calomelanos",23,2018,0
 "319",84,"Davallia denticulata",17,2018,0
 "320",84,"Lindsaea ensifolia",36,2018,0
 "321",84,"Cyrtococcum patens",323,2018,0
-"322",84,"Peperomia Pellucida",49,2018,0
+"322",84,"Peperomia pellucida",49,2018,0
 "323",84,"Pulai",6,2018,0
-"324",84,"Spaghneticola Trilobata",3,2018,0
+"324",84,"Sphagneticola trilobata",3,2018,0
 "325",84,"Lindernia diffusa",138,2018,0
 "326",84,"Asystasia gangetica",154,2018,0
 "327",84,"Leptaspis urceolata",83,2018,0
@@ -348,9 +336,9 @@
 "347",116,"Endospermum diadenum",42,2018,0
 "348",116,"Synedrella nudiflora",4,2018,0
 "349",116,"Clidemia hirta",236,2018,0
-"350",116,"Lindsaea ensifolia alike",9,2018,0
+"350",116,"Lindsaea ensifolia",9,2018,0
 "351",117,"Looks like Mussaenda Frondusa",1,2018,0
-"352",117,"Tetracera Indica",1,2018,0
+"352",117,"Tetracera indica",1,2018,0
 "353",117,"Long Straight Grass",2,2018,0
 "354",117,"Long Sharp Leaves Tree",5,2018,0
 "355",117,"Pikform Blattbaum",4,2018,0
@@ -363,18 +351,18 @@
 "362",117,"Dicranopteris linearis",137,2018,0
 "363",117,"Hevea Brasiliensis",2,2018,0
 "364",117,"Lindsaea ensifolia",11,2018,0
-"365",118,"sphagnetica trilobata",8,2018,0
+"365",118,"Sphagneticola trilobata",8,2018,0
 "366",118,"Centotheca lappacea",76,2018,0
 "367",118,"Endospermum diadenum",23,2018,0
 "368",118,"Daun serat",5,2018,0
 "369",118,"Like schopalia",11,2018,0
 "370",118,"Mussaenda frondosa",13,2018,0
 "371",118,"Scleria ciliaris",106,2018,0
-"372",118,"Spermaococe cristata",8,2018,0
+"372",118,"Spermacoce cristata",8,2018,0
 "373",118,"Lindsaea ensifolia",28,2018,0
 "374",118,"Melastoma malabathricum",2,2018,0
 "375",118,"Leptaspis urceolata",9,2018,0
-"376",118,"passiflora foetida(",3,2018,0
+"376",118,"Passiflora foetida",3,2018,0
 "377",118,"Like oxalis",6,2018,0
 "378",118,"mirip karet",3,2018,0
 "379",118,"Clidemia hirta",109,2018,0
@@ -412,9 +400,9 @@
 "411",170,"Taenitis blechnoides",2,2018,0
 "412",170,"Lasianthus inaequalis",4,2018,0
 "413",170,"Scleria ciliaris",140,2018,0
-"414",170,"cuphea cartagenensis",1,2018,0
+"414",170,"Cuphea carthagenensis",1,2018,0
 "415",170,"Clidemia hirta",151,2018,0
-"416",170,"clibadium surinamense",1,2018,0
+"416",170,"Clibadium surinamense",1,2018,0
 "417",170,"Bauhinia semibifida",1,2018,0
 "418",170,"Tetracera indica",1,2018,0
 "419",170,"Cyrtococcum patens",53,2018,0
@@ -431,7 +419,7 @@
 "430",173,"Centotheca lappacea",18,2018,0
 "431",173,"Molinera latifolia",26,2018,0
 "432",173,"Cyrtococcum patens",56,2018,0
-"433",173,"Marantodes pumulium",1,2018,0
+"433",173,"Marantodes pumilum",1,2018,0
 "434",173,"Obat kuat",5,2018,0
 "435",175,"Dicranopteris linearis",2,2018,0
 "436",175,"Axonopus compressus",27,2018,0
@@ -447,7 +435,7 @@
 "446",181,"Lindsaea ensifolia",17,2018,0
 "447",181,"Dicranopteris linearis",142,2018,0
 "448",181,"Melastoma malabathricum",2,2018,0
-"449",181,"cleome rutidosperma",1,2018,0
+"449",181,"Cleome rutidosperma",1,2018,0
 "450",181,"Macaranga bancana",1,2018,0
 "451",183,"Hevea Brasiliensis",2,2018,0
 "452",183,"Dicranopteris linearis",20,2018,0
@@ -486,13 +474,13 @@
 "485",197,"Centotheca lappacea",10,2018,0
 "486",197,"Scleria ciliaris",178,2018,0
 "487",197,"Pouzolzia zeylanica",15,2018,0
-"488",197,"Cuphea cartha genesis",1,2018,0
-"489",200,"Cuphea carthagenepsis",1,2018,0
+"488",197,"Cuphea carthagenensis",1,2018,0
+"489",200,"Cuphea carthagenensis",1,2018,0
 "490",200,"Cleome rutidosperma",10,2018,0
 "491",200,"Calopogonium mucunoides",6,2018,0
 "492",200,"Lasianthus inaequalis",10,2018,0
 "493",200,"Endospermum diadenum",19,2018,0
-"494",200,"Stachyarpheta indica",11,2018,0
+"494",200,"Stachytarpheta indica",11,2018,0
 "495",200,"Mangifera indica",19,2018,0
 "496",200,"Centotheca lappacea",21,2018,0
 "497",200,"Cheilocostus speciosus",1,2018,0
@@ -514,7 +502,7 @@
 "513",204,"Endospermum diadenum",11,2018,0
 "514",204,"Tetracera indica",36,2018,0
 "515",204,"Cyrtococcum patens",1242,2018,0
-"516",204,"Calpogium mucunoides",7,2018,0
+"516",204,"Calopogonium mucunoides",7,2018,0
 "517",204,"Ligodium cf.circinatum 14",14,2018,0
 "518",204,"Cleome rutidosperma",32,2018,0
 "519",204,"Passiflora foetida",17,2018,0
@@ -534,14 +522,14 @@
 "533",209,"Cyrtococcum patens",36,2018,0
 "534",209,"Leptaspis urceolata",4,2018,0
 "535",209,"Melastoma malabathricum",1,2018,0
-"536",209,"stenochlaena palustris",1,2018,0
+"536",209,"Stenochlaena palustris",1,2018,0
 "537",209,"mirip kopi",2,2018,0
 "538",210,"Goniophlebium verrucosum",25,2018,0
 "539",210,"Dicranopteris linearis",2,2018,0
 "540",210,"Endospermum diadenum",43,2018,0
 "541",210,"Scleria ciliaris",68,2018,0
 "542",210,"Adiantum latifolium",5,2018,0
-"543",210,"Centrocem	 pubescens",1,2018,0
+"543",210,"Centrosema pubescens",1,2018,0
 "544",210,"Calopogonium mucunoides",3,2018,0
 "545",210,"Clidemia hirta",136,2018,0
 "546",210,"Ludwigia octovalvis",1,2018,0
@@ -566,9 +554,9 @@
 "565",220,"Talas",7,2018,0
 "566",220,"Cyrtococcum patens",40,2018,0
 "567",220,"Obat kuat",10,2018,0
-"568",220,"Lindsae ensifolia",2,2018,0
-"569",220,"Kayu berumbung",2,2018,0
-"570",220,"Centrocema pubescens",1,2018,0
+"568",220,"Lindsaea ensifolia",2,2018,0
+"569",220,"kayu berumbung",2,2018,0
+"570",220,"Centrosema pubescens",1,2018,0
 "571",246,"Dicranopteris linearis",21,2018,0
 "572",246,"Melastoma malabathricum",8,2018,0
 "573",246,"Centotheca lappacea",12,2018,0
@@ -597,7 +585,6 @@
 "596",248,"Scleria ciliaris",37,2018,0
 "597",248,"Cyrtococcum patens",1680,2018,0
 "598",248,"Daun Hijau",1,2018,0
-"599",248,"Molinera latifolia",1,2018,0
 "600",248,"Vittaria elongata",32,2018,0
 "601",249,"Mimosa pudica",2,2018,0
 "602",249,"Molinera latifolia",3,2018,0
@@ -613,13 +600,13 @@
 "612",249,"Mussaenda frondosa",1,2018,0
 "613",249,"Oxalis barrelieri",2,2018,0
 "614",249,"Scleria ciliaris",38,2018,0
-"615",249,"Cleome Rutidosperma",21,2018,0
+"615",249,"Cleome rutidosperma",21,2018,0
 "616",249,"Centotheca lappacea",32,2018,0
-"617",249,"Passiflora Foetida",2,2018,0
-"618",249,"Centrosema Pubescens",2,2018,0
+"617",249,"Passiflora foetida",2,2018,0
+"618",249,"Centrosema pubescens",2,2018,0
 "619",251,"Macaranga bancana",2,2018,0
 "620",251,"Scleria ciliaris",49,2018,0
-"621",251,"Spermaococe cristata",3,2018,0
+"621",251,"Spermacoce cristata",3,2018,0
 "622",251,"Lindsaea ensifolia",10,2018,0
 "623",251,"Clidemia hirta",71,2018,0
 "624",251,"Asystasia gangetica",12,2018,0
@@ -635,8 +622,8 @@
 "634",251,"Cyrtococcum patens",35,2018,0
 "635",251,"Pucuk Merah",2,2018,0
 "636",254,"Centotheca lappacea",61,2018,0
-"637",254,"cleome ritidosperma",14,2018,0
-"638",254,"cleome rutidosperma",138,2018,0
+"637",254,"Cleome rutidosperma",14,2018,0
+"638",254,"Cleome rutidosperma",138,2018,0
 "639",254,"Imperata cylindrica",33,2018,0
 "640",254,"Cyrtococcum patens",26,2018,0
 "641",255,"Clidemia hirta",73,2018,0
@@ -645,7 +632,7 @@
 "644",255,"Lindsaea diffusa",4,2018,0
 "645",255,"Lygodium salicifolium",2,2018,0
 "646",255,"Macaranga bancana",3,2018,0
-"647",255,"Helminthostachys Zeylanica",5,2018,0
+"647",255,"Helminthostachys zeylanica",5,2018,0
 "648",255,"Molinera latifolia",1,2018,0
 "649",255,"Oxalis barrelieri",3,2018,0
 "650",255,"Scleria ciliaris",28,2018,0
@@ -657,14 +644,14 @@
 "656",258,"Lindsaea ensifolia",3,2018,0
 "657",258,"Asystasia gangetica",11,2018,0
 "658",258,"Melastoma malabathricum",6,2018,0
-"659",258,"Helminthotachys Zeylanica",3,2018,0
-"660",258,"Centrosema Pubescens",8,2018,0
+"659",258,"Helminthostachys zeylanica",3,2018,0
+"660",258,"Centrosema pubescens",8,2018,0
 "661",258,"Vittaria ensiformis",205,2018,0
 "662",258,"Leptaspis urceolata",23,2018,0
 "663",258,"Cyrtococcum patens",5,2018,0
 "664",258,"Daun Salam Hutan",7,2018,0
 "665",258,"Clidemia hirta",42,2018,0
-"666",260,"Cyrtococum Pattern",863,2018,0
+"666",260,"Cyrtococcum patens",863,2018,0
 "667",260,"Scleria ciliaris",16,2018,0
 "668",260,"Cleome rutidosperma",36,2018,0
 "669",260,"Clidemia hirta",42,2018,0
@@ -685,7 +672,7 @@
 "684",269,"Axonopus compressus",13,2018,0
 "685",269,"Clidemia hirta",84,2018,0
 "686",269,"Scleria ciliaris",73,2018,0
-"687",269,"Clibadium surinamence",1,2018,0
+"687",269,"Clibadium surinamense",1,2018,0
 "688",269,"Lindsaea ensifolia",9,2018,0
 "689",269,"Lygodium circinatum",1,2018,0
 "690",269,"Molinera latifolia",1,2018,0
@@ -700,16 +687,16 @@
 "699",270,"Pandan",1,2018,0
 "700",270,"Cyrtococcum patens",15,2018,0
 "701",273,"Clidemia hirta",98,2018,0
-"702",273,"sceleria ciliaris",160,2018,0
+"702",273,"Scleria ciliaris",160,2018,0
 "703",273,"Endospermum diadenum",8,2018,0
 "704",273,"Asystasia gangetica",25,2018,0
 "705",273,"Axonopus compressus",57,2018,0
-"706",273,"like rothmannia macrophylla",1,2018,0
+"706",273,"Rothmannia macrophylla",1,2018,0
 "707",273,"Melastoma malabathricum",23,2018,0
 "708",273,"Tetracera indica",2,2018,0
 "709",273,"Dicranopteris linearis",5,2018,0
 "710",273,"Leptaspis urceolata",33,2018,0
-"711",273,"cyrtoccocum patens",117,2018,0
+"711",273,"Cyrtococcum patens",117,2018,0
 "712",277,"Clidemia hirta",38,2018,0
 "713",277,"Endospermum diadenum",1,2018,0
 "714",277,"Sauropus androgynus",2,2018,0
@@ -724,18 +711,18 @@
 "723",279,"Lasianthus inaequalis",13,2018,0
 "724",279,"Molinera latifolia",23,2018,0
 "725",279,"Mussaenda frondosa",8,2018,0
-"726",279,"Spermaococe cristata",27,2018,0
+"726",279,"Spermacoce cristata",27,2018,0
 "727",279,"Taenitis blechnoides",10,2018,0
 "728",279,"Kayu terap",1,2018,0
 "729",279,"Clidemia hirta",30,2018,0
-"730",279,"Macaranga Bancana",9,2018,0
+"730",279,"Macaranga bancana",9,2018,0
 "731",279,"Poikilospermum suaveolens",7,2018,0
 "732",279,"Lygodium cs.circinatum",3,2018,0
 "733",279,"Like pakis",2,2018,0
 "734",279,"Rothmannia macrophylla",31,2018,0
-"735",279,"Ixoria grandifolia",2,2018,0
+"735",279,"Ixora grandifolia",2,2018,0
 "736",279,"Cyrtococcum patens",2,2018,0
-"737",279,"Cuphea carthagenesis",10,2018,0
+"737",279,"Cuphea carthagenensis",10,2018,0
 "738",279,"Three corner leaf",13,2018,0
 "739",279,"ardocarpus elasdicus",5,2018,0
 "740",282,"Rothmannia macrophylla",2,2018,0
@@ -764,10 +751,10 @@
 "763",325,"Molinera latifolia",53,2018,0
 "764",325,"Centotheca lappacea",172,2018,0
 "765",325,"Lasianthus inaequalis",3,2018,0
-"766",325,"Helminthostachys Zeylanica",9,2018,0
+"766",325,"Helminthostachys zeylanica",9,2018,0
 "767",326,"Ageratum conyzoides",12,2018,0
-"768",326,"Selaginella Plana",182,2018,0
-"769",326,"Cleome Rutidosperma",64,2018,0
+"768",326,"Selaginella plana",182,2018,0
+"769",326,"Cleome rutidosperma",64,2018,0
 "770",326,"Asplenium glaucophyllum",3,2018,0
 "771",326,"Asystasia gangetica",195,2018,0
 "772",326,"Calopogonium Glaucophyllum",2,2018,0
@@ -789,12 +776,12 @@
 "788",329,"Polygala paniculata",32,2018,0
 "789",329,"Davallia denticulata",23,2018,0
 "790",329,"Imperata cylindrica",120,2018,0
-"791",329,"Cyrtococum pattern",36,2018,0
+"791",329,"Cyrtococcum patens",36,2018,0
 "792",329,"Chromolaena odorata",42,2018,0
 "793",329,"Scleria ciliaris",36,2018,0
 "794",329,"Selaginella intermedia",845,2018,0
 "795",329,"Phylanthus urinaria",20,2018,0
-"796",329,"Leptapis",102,2018,0
+"796",329,"Leptaspis urceolata",102,2018,0
 "797",329,"Talas",57,2018,0
 "798",334,"Goniophlebium verrucosum",339,2018,0
 "799",334,"Clidemia hirta",35,2018,0
@@ -834,8 +821,8 @@
 "833",342,"Scleria ciliaris",94,2018,0
 "834",342,"Selaginella plana",128,2018,0
 "835",342,"Oxalis barrelieri",36,2018,0
-"836",342,"Cheilocostus Speciosus",3,2018,0
-"837",342,"Cleome Rutidosperma",142,2018,0
+"836",342,"Cheilocostus speciosus",3,2018,0
+"837",342,"Cleome rutidosperma",142,2018,0
 "838",346,"Lycopodiella cernua",5,2018,0
 "839",346,"No Name 1",1,2018,0
 "840",346,"Lindsaea ensifolia",17,2018,0
@@ -848,7 +835,7 @@
 "847",346,"Rolandra fruticosa",81,2018,0
 "848",346,"Leptaspis urceolata",1120,2018,0
 "849",346,"Ludwigia octovalvis",170,2018,0
-"850",346,"Lindernia Diffusa",76,2018,0
+"850",346,"Lindernia diffusa",76,2018,0
 "851",347,"Daun Talas",1,2018,0
 "852",347,"Phyllanthus urinaria",3,2018,0
 "853",347,"Rolandra fruticosa",46,2018,0
@@ -860,12 +847,12 @@
 "859",349,"Adiantum latifolium",11,2018,0
 "860",349,"Ludwigia octovalvis",5,2018,0
 "861",349,"Rolandra fruticosa",6,2018,0
-"862",349,"Centrosema Pubescens",2,2018,0
-"863",349,"Ophiglossum Pendulum",3,2018,0
+"862",349,"Centrosema pubescens",2,2018,0
+"863",349,"Ophioglossum pendulum",3,2018,0
 "864",349,"Asystasia gangetica",50,2018,0
 "865",349,"Clidemia hirta",49,2018,0
 "866",349,"Davallia denticulata",22,2018,0
-"867",349,"Cuphea Carthagenesis",5,2018,0
+"867",349,"Cuphea carthagenensis",5,2018,0
 "868",349,"Cyrtococcum patens",55,2018,0
 "869",349,"Leptaspis urceolata",4,2018,0
 "870",351,"Asystasia gangetica",32,2018,0
@@ -878,10 +865,10 @@
 "877",351,"Melastoma malabathricum",17,2018,0
 "878",351,"Pityrogramma Calomelanos",21,2018,0
 "879",351,"Leptaspis urceolata",73,2018,0
-"880",351,"Pennisetum Polystachion",19,2018,0
+"880",351,"pennisetum polystachion",19,2018,0
 "881",354,"Clidemia hirta",27,2018,0
 "882",354,"Leptaspis urceolata",127,2018,0
-"883",354,"Spermaococe cristata",5,2018,0
+"883",354,"Spermacoce cristata",5,2018,0
 "884",354,"Asystasia gangetica",126,2018,0
 "885",354,"Chromolaena odorata",6,2018,0
 "886",354,"Dicranopteris linearis",13,2018,0
@@ -891,18 +878,18 @@
 "890",354,"Daun Kayu Putih",3,2018,0
 "891",354,"Stachytarpheta indica",105,2018,0
 "892",354,"Taenitis blechnoides",3,2018,0
-"893",354,"Selaginella Plana",720,2018,0
+"893",354,"Selaginella plana",720,2018,0
 "894",354,"Centotheca lappacea",12,2018,0
 "895",355,"Molinera latifolia",4,2018,0
 "896",355,"Leptaspis urceolata",17,2018,0
-"897",355,"Cleome Rutidosperma",8,2018,0
+"897",355,"Cleome rutidosperma",8,2018,0
 "898",355,"Cyrtococcum patens",32,2018,0
 "899",355,"Lindsaea ensifolia",10,2018,0
 "900",355,"Clidemia hirta",8,2018,0
 "901",355,"Goniophlebium verrucosum",4,2018,0
 "902",355,"Legazpia polygonoides",3,2018,0
 "903",355,"Rolandra fruticosa",26,2018,0
-"904",355,"Spermaococe cristata",3,2018,0
+"904",355,"Spermacoce cristata",3,2018,0
 "905",355,"Vittaria ensiformis",9,2018,0
 "906",355,"Melastoma malabathricum",7,2018,0
 "907",358,"Blechnum orientale",11,2018,0
@@ -929,10 +916,10 @@
 "928",361,"Paspalum dilatatum",79,2018,0
 "929",361,"Stachytarpheta indica",4,2018,0
 "930",361,"Vittaria elongata",212,2018,0
-"931",361,"Cleome Rutidosperma",74,2018,0
+"931",361,"Cleome rutidosperma",74,2018,0
 "932",361,"Cyrtococcum patens",97,2018,0
 "933",361,"Mallotus peltatus",9,2018,0
-"934",361,"Rhynchospora Colorata",49,2018,0
+"934",361,"Rhynchospora colorata",49,2018,0
 "935",361,"Leptaspis urceolata",53,2018,0
 "936",361,"Endospermum diadenum",2,2018,0
 "937",362,"Pucuk Merah",12,2018,0
@@ -944,7 +931,7 @@
 "943",362,"Lindsaea ensifolia",12,2018,0
 "944",362,"Lygodium circinatum",8,2018,0
 "945",362,"Scleria ciliaris",40,2018,0
-"946",362,"Cheilocostus Soeciosus",3,2018,0
+"946",362,"Cheilocostus speciosus",3,2018,0
 "947",362,"Clidemia hirta",17,2018,0
 "948",363,"Lindsaea ensifolia",23,2018,0
 "949",363,"Taenitis blechnoides",5,2018,0
@@ -960,24 +947,24 @@
 "959",363,"Scleria ciliaris",78,2018,0
 "960",363,"Rambat 1",15,2018,0
 "961",363,"Mampat",12,2018,0
-"962",367,"helmin minthostachys",1,2018,0
-"963",367,"cleomerutidsperma",4,2018,0
+"962",367,"Helminthostachys zeylanica",1,2018,0
+"963",367,"Cleome rutidosperma",4,2018,0
 "964",367,"Endospermum diadenum",1,2018,0
 "965",367,"Croton hirtus",5,2018,0
 "966",367,"Lindsaea ensifolia",3,2018,0
 "967",367,"Lygodium salicifolium",14,2018,0
 "968",367,"Macaranga bancana",1,2018,0
 "969",367,"Oxalis barrelieri",13,2018,0
-"970",367,"Spermaococe cristata",4,2018,0
+"970",367,"Spermacoce cristata",4,2018,0
 "971",367,"Blechnum orientale",1,2018,0
 "972",367,"367_Sharp flower plant",5,2018,0
 "973",367,"tarenia violecea",6,2018,0
 "974",367,"Asplenium longissimum",2,2018,0
-"975",367,"synedrella nudiflora",1,2018,0
+"975",367,"Synedrella nudiflora",1,2018,0
 "976",373,"Scleria ciliaris",7,2018,0
 "977",373,"Clidemia hirta",73,2018,0
 "978",373,"LN: Lengkuas",12,2018,0
-"979",373,"Helminthostachys Zeylanica",2,2018,0
+"979",373,"Helminthostachys zeylanica",2,2018,0
 "980",373,"Mallotus peltatus",36,2018,0
 "981",373,"Cyrtococcum patens",181,2018,0
 "982",373,"Pouzolzia Zeylanica",16,2018,0
@@ -1012,11 +999,10 @@
 "1011",379,"Axonopus compressus",17,2018,0
 "1012",379,"Lindsaea ensifolia",19,2018,0
 "1013",379,"Clidemia hirta",73,2018,0
-"1014",379,"Spermaococe cristata",71,2018,0
+"1014",379,"Spermacoce cristata",71,2018,0
 "1015",379,"Dicranopteris linearis",9,2018,0
 "1016",379,"Daun ubi bulu",1,2018,0
 "1017",379,"Goniophlebium verrucosum",16,2018,0
-"1018",379,"Spermacoce cristata",71,2018,0
 "1019",379,"Endospermum diadenum",2,2018,0
 "1020",382,"Scleria ciliaris",27,2018,0
 "1021",382,"Oxalis barrelieri",3,2018,0
@@ -1033,29 +1019,29 @@
 "1032",382,"Lindernia diffusa",3,2018,0
 "1033",382,"Blechnum Ensifolia",2,2018,0
 "1034",382,"Asplenium longissimum",7,2018,0
-"1035",382,"Cleome Rutidosperma",280,2018,0
-"1036",382,"Lindsae Ensifolia",5,2018,0
+"1035",382,"Cleome rutidosperma",280,2018,0
+"1036",382,"Lindsaea ensifolia",5,2018,0
 "1037",385,"Davallia denticulata",3,2018,0
 "1038",385,"Clidemia hirta",22,2018,0
 "1039",385,"Lindernia diffusa",146,2018,0
 "1040",385,"Scleria ciliaris",5,2018,0
 "1041",385,"Rolandra fruticosa",2,2018,0
-"1042",385,"cleome rutidosperma",101,2018,0
+"1042",385,"Cleome rutidosperma",101,2018,0
 "1043",385,"Lygodium salicifolium",5,2018,0
-"1044",385,"cuphea carthagenensis",4,2018,0
-"1045",385,"lindsaea ensifolia",31,2018,0
+"1044",385,"Cuphea carthagenensis",4,2018,0
+"1045",385,"Lindsaea ensifolia",31,2018,0
 "1046",385,"Leptaspis urceolata",44,2018,0
-"1047",385,"clibadium surinamense",1,2018,0
-"1048",385,"centhoceca lappacea",192,2018,0
+"1047",385,"Clibadium surinamense",1,2018,0
+"1048",385,"Centotheca lappacea",192,2018,0
 "1049",387,"Scleria ciliaris",140,2018,0
 "1050",387,"Rothmannia macrophylla",20,2018,0
 "1051",387,"Clidemia hirta",151,2018,0
-"1052",387,"terracera indica",1,2018,0
+"1052",387,"Tetracera indica",1,2018,0
 "1053",387,"Taenitis blechnoides",2,2018,0
 "1054",387,"Bauhinia semibifida",1,2018,0
 "1055",387,"Cyrtococcum patens",53,2018,0
-"1056",387,"clibadium surinamense",1,2018,0
-"1057",387,"cuphea carthagenensis",1,2018,0
+"1056",387,"Clibadium surinamense",1,2018,0
+"1057",387,"Cuphea carthagenensis",1,2018,0
 "1058",388,"Asystasia gangetica",38,2018,0
 "1059",388,"Axonopus compressus",80,2018,0
 "1060",388,"Sauropus androgynus",4,2018,0
@@ -1068,7 +1054,7 @@
 "1067",395,"Elaeis guineensis",6,2018,0
 "1068",395,"Goniophlebium verrucosum",10,2018,0
 "1069",395,"Lindsaea ensifolia",44,2018,0
-"1070",397,"Cuphea carthagenesis",2,2018,0
+"1070",397,"Cuphea carthagenensis",2,2018,0
 "1071",397,"Mallotus peltatus",3,2018,0
 "1072",397,"Stachytarpheta indica",17,2018,0
 "1073",397,"Mimosa pudica",10,2018,0
@@ -1097,12 +1083,12 @@
 "1096",403,"Asystasia gangetica",450,2018,0
 "1097",403,"Cyrtococcum patens",46,2018,0
 "1098",403,"Scleria ciliaris",5,2018,0
-"1099",403,"cleome rutidosperma",56,2018,0
-"1100",403,"selaginella plana",200,2018,0
+"1099",403,"Cleome rutidosperma",56,2018,0
+"1100",403,"Selaginella plana",200,2018,0
 "1101",403,"pityogramma calomelanos",20,2018,0
-"1102",403,"goniophlebium percussum",6,2018,0
+"1102",403,"Goniophlebium verrucosum",6,2018,0
 "1103",403,"costus woodsoni",3,2018,0
-"1104",403,"rhynchospora colorata",12,2018,0
+"1104",403,"Rhynchospora colorata",12,2018,0
 "1105",403,"musaceae sp",1,2018,0
 "1106",403,"Ageratum conyzoides",8,2018,0
 "1107",410,"Axonopus compressus",72,2018,0
@@ -1111,12 +1097,12 @@
 "1110",410,"Panicum repens",25,2018,0
 "1111",410,"Acmella paniculata",42,2018,0
 "1112",410,"Lygodium circinatum",17,2018,0
-"1113",410,"centrosema pubescens",15,2018,0
+"1113",410,"Centrosema pubescens",15,2018,0
 "1114",410,"Paspalum dilatatum",116,2018,0
 "1115",410,"Rolandra fruticosa",21,2018,0
 "1116",410,"Salomonia cantoniensis",3,2018,0
 "1117",410,"Asystasia gangetica",52,2018,0
-"1118",410,"centhoceca lappacea",62,2018,0
+"1118",410,"Centotheca lappacea",62,2018,0
 "1119",410,"Like red melasthoma",5,2018,0
 "1120",416,"Asystasia gangetica",314,2018,0
 "1121",416,"Davallia denticulata",15,2018,0
@@ -1136,9 +1122,9 @@
 "1135",419,"Oxalis barrelieri",17,2018,0
 "1136",419,"Adiantum latifolium",64,2018,0
 "1137",419,"Asystasia gangetica",43,2018,0
-"1138",419,"Peperomia Pelucida",4,2018,0
+"1138",419,"Peperomia pellucida",4,2018,0
 "1139",419,"Hyptis capitata",27,2018,0
-"1140",419,"Cleome Rutidosperma",867,2018,0
+"1140",419,"Cleome rutidosperma",867,2018,0
 "1141",419,"Acmella paniculata",83,2018,0
 "1142",419,"Pityrogramma calomelanos",1,2018,0
 "1143",419,"paku flower",70,2018,0
@@ -1154,9 +1140,9 @@
 "1153",424,"Adiantum latifolium",146,2018,0
 "1154",424,"Imperata cylindrica",1,2018,0
 "1155",424,"Lygodium salicifolium",59,2018,0
-"1156",425,"Merremia Umbellata",8,2018,0
+"1156",425,"Merremia umbellata",8,2018,0
 "1157",425,"Blechnum orientale",3,2018,0
-"1158",425,"Uncari Cordata",4,2018,0
+"1158",425,"Uncaria cordata",4,2018,0
 "1159",425,"MS: Rumput gajah",1,2018,0
 "1160",425,"Cyrtococcum patens",84,2018,0
 "1161",425,"Poikilospermum Suaveolens",3,2018,0
@@ -1183,17 +1169,17 @@
 "1182",436,"Acmella paniculata",8,2018,0
 "1183",436,"Sphagneticola trilobata",140,2018,0
 "1184",436,"Lygodium cf.circinatum",4,2018,0
-"1185",436,"Spermaococe cristata",8,2018,0
+"1185",436,"Spermacoce cristata",8,2018,0
 "1186",436,"Taenitis blechnoides",6,2018,0
 "1187",436,"Scleria ciliaris",120,2018,0
-"1188",437,"daun Sirih",3,2018,0
+"1188",437,"Daun Sirih",3,2018,0
 "1189",437,"Clidemia hirta",37,2018,0
 "1190",437,"Scleria ciliaris",11,2018,0
 "1191",437,"Cyrtococcum patens",80,2018,0
 "1192",437,"Bunga Putih",5,2018,0
 "1193",437,"Stenochlaena palustris",83,2018,0
 "1194",437,"Taenitis blechnoides",12,2018,0
-"1195",437,"Macaranga Bancana",1,2018,0
+"1195",437,"Macaranga bancana",1,2018,0
 "1196",437,"Mirip Jati",5,2018,0
 "1197",437,"Rambutan Hutan",1,2018,0
 "1198",442,"Leptaspis urceolata",35,2018,0
@@ -1206,12 +1192,11 @@
 "1205",442,"salam hutan",13,2018,0
 "1206",442,"Taenitis blechnoides",38,2018,0
 "1207",443,"Ageratum conyzoides",24,2018,0
-"1208",443,"Sphagneticola Trilobata",12,2018,0
+"1208",443,"Sphagneticola trilobata",12,2018,0
 "1209",443,"Scleria ciliaris",88,2018,0
-"1210",443,"Cleome Rutidosperma",124,2018,0
+"1210",443,"Cleome rutidosperma",124,2018,0
 "1211",443,"Vittaria elongata",346,2018,0
 "1212",443,"Rolandra fruticosa",80,2018,0
-"1213",443,"SpeciesName",NA,2018,0
 "1214",443,"Molinera latifolia",3,2018,0
 "1215",444,"Lindsaea ensifolia",33,2018,0
 "1216",444,"Clidemia hirta",138,2018,0
@@ -1220,9 +1205,9 @@
 "1219",444,"Lygodium salicifolium",17,2018,0
 "1220",444,"Lygodium circinatum",4,2018,0
 "1221",444,"Melastoma affine",2,2018,0
-"1222",444,"Pennisetum polystachion",12,2018,0
+"1222",444,"pennisetum polystachion",12,2018,0
 "1223",444,"Leptaspis urceolata",75,2018,0
-"1224",444,"talas",1,2018,0
+"1224",444,"Talas",1,2018,0
 "1225",444,"salam hutan",17,2018,0
 "1226",444,"Centotheca lappacea",209,2018,0
 "1227",444,"Macaranga bancana",30,2018,0
@@ -1235,33 +1220,33 @@
 "1234",445,"Poikilospermum suaveolens",12,2018,0
 "1235",445,"Molinera latifolia",2,2018,0
 "1236",445,"Mallotus peltatus",6,2018,0
-"1237",445,"Lindsaea ensifoliia",2,2018,0
+"1237",445,"Lindsaea ensifolia",2,2018,0
 "1238",449,"Lindsaea ensifolia",54,2018,0
 "1239",449,"Melastoma malabathricum",17,2018,0
 "1240",449,"Asystasia gangetica",36,2018,0
 "1241",449,"Clidemia hirta",355,2018,0
 "1242",449,"Lindernia diffusa",2,2018,0
 "1243",449,"Adiantum latifolium",42,2018,0
-"1244",449,"Cuphea Carthagenesis",1,2018,0
+"1244",449,"Cuphea carthagenensis",1,2018,0
 "1245",449,"Axonopus compressus",88,2018,0
 "1246",449,"Lygodium salicifolium",2,2018,0
 "1247",449,"Tetracera indica",4,2018,0
 "1248",449,"Cyrtococcum patens",336,2018,0
 "1249",449,"Centotheca lappacea",3,2018,0
-"1250",449,"scoparia dulcis",1,2018,0
-"1251",455,"cleome rutidosperma",9,2018,0
+"1250",449,"Scoparia dulcis",1,2018,0
+"1251",455,"Cleome rutidosperma",9,2018,0
 "1252",455,"LN: Kayu medang",7,2018,0
 "1253",455,"LN: Salung",8,2018,0
 "1254",455,"Bauhinia semibifida",4,2018,0
 "1255",455,"Lygodium salicifolium",3,2018,0
 "1256",455,"Clidemia hirta",19,2018,0
-"1257",455,"cuphea carthagenensis",1,2018,0
+"1257",455,"Cuphea carthagenensis",1,2018,0
 "1258",455,"Lasianthus inaequalis",9,2018,0
-"1259",455,"marantodes pumilum",2,2018,0
+"1259",455,"Marantodes pumilum",2,2018,0
 "1260",455,"Lygodium sp.",1,2018,0
 "1261",455,"Macaranga bancana",3,2018,0
 "1262",455,"Mallotus peltatus",1,2018,0
-"1263",455,"Uncaria Cordata",8,2018,0
+"1263",455,"Uncaria cordata",8,2018,0
 "1264",455,"rattan",1,2018,0
 "1265",455,"Stachytarpheta jamaicensis",22,2018,0
 "1266",459,"Clidemia hirta",10,2018,0
@@ -1273,7 +1258,7 @@
 "1272",459,"Elaeis guineensis",2,2018,0
 "1273",459,"spitzblaettriges unkraut (aehnlich Pouzalzia S.11)",69,2018,0
 "1274",459,"rundbl<e4>ttriges Unkraut",556,2018,0
-"1275",460,"centrosema pubescens",171,2018,0
+"1275",460,"Centrosema pubescens",171,2018,0
 "1276",460,"Lindernia diffusa",293,2018,0
 "1277",460,"Leptaspis urceolata",12,2018,0
 "1278",460,"Legazpia polygonoides",14,2018,0
@@ -1291,9 +1276,9 @@
 "1290",463,"Elaeis guineensis",3,2018,0
 "1291",463,"Centotheca lappacea",200,2018,0
 "1292",463,"rhododendron lookalike",66,2018,0
-"1293",463,"Taenitis Blechnoides",17,2018,0
+"1293",463,"Taenitis blechnoides",17,2018,0
 "1294",463,"Polygala paniculata",84,2018,0
-"1295",463,"cheilocostus speciosus ?",15,2018,0
+"1295",463,"Cheilocostus speciosus",15,2018,0
 "1296",463,"Clidemia hirta",133,2018,0
 "1297",463,"Hevea Brasiliensis",40,2018,0
 "1298",463,"Coffea sp.",11,2018,0
@@ -1302,10 +1287,10 @@
 "1301",464,"Hevea Brasiliensis",50,2018,0
 "1302",464,"mirip pakis",16,2018,0
 "1303",464,"Centotheca lappacea",45,2018,0
-"1304",464,"Ixora Grandifolia",7,2018,0
+"1304",464,"Ixora grandifolia",7,2018,0
 "1305",464,"kayu tempe tempe",3,2018,0
 "1306",464,"Kayu kelat",10,2018,0
-"1307",464,"macaranga bancana",2,2018,0
+"1307",464,"Macaranga bancana",2,2018,0
 "1308",464,"kayu mahang",5,2018,0
 "1309",467,"Salomonia cantoniensis",3,2018,0
 "1310",467,"Asystasia gangetica",93,2018,0
@@ -1314,10 +1299,10 @@
 "1313",467,"Cabang 6",2,2018,0
 "1314",467,"Lantana camara",21,2018,0
 "1315",467,"Molinera latifolia",4,2018,0
-"1316",467,"Passiflora Foetida",18,2018,0
+"1316",467,"Passiflora foetida",18,2018,0
 "1317",467,"Calopogonium mucunoides",15,2018,0
 "1318",467,"Leptaspis urceolata",5,2018,0
-"1319",467,"Meremia Umbelata",2,2018,0
+"1319",467,"Merremia umbellata",2,2018,0
 "1320",467,"Lasianthus inaequalis",4,2018,0
 "1321",467,"Stachytarpheta indica",3,2018,0
 "1322",467,"Phyllanthus urinaria",3,2018,0
@@ -1327,7 +1312,7 @@
 "1326",471,"Lindsaea ensifolia",4,2018,0
 "1327",471,"Oxalis barrelieri",3,2018,0
 "1328",471,"Davallia denticulata",124,2018,0
-"1329",471,"globba pandula",82,2018,0
+"1329",471,"Globba pendula",82,2018,0
 "1330",471,"phyllanthus urinaria",1,2018,0
 "1331",471,"climbing rubber",21,2018,0
 "1332",471,"lygodium cf.circinatum",24,2018,0
@@ -1341,7 +1326,7 @@
 "1340",474,"Stenochlaena palustris",24,2018,0
 "1341",474,"Leptaspis urceolata",48,2018,0
 "1342",474,"Cocoa",2,2018,0
-"1343",474,"Marantodes Pumilum",4,2018,0
+"1343",474,"Marantodes pumilum",4,2018,0
 "1344",474,"Kunyit hutan",2,2018,0
 "1345",481,"Lygodium salicifolium",2,2018,0
 "1346",481,"Croton hirtus",2,2018,0
@@ -1368,7 +1353,7 @@
 "1367",482,"Asystasia gangetica",21,2018,0
 "1368",482,"Axonopus compressus",72,2018,0
 "1369",482,"Clidemia hirta",13,2018,0
-"1370",482,"Cleome Rutidosperma",19,2018,0
+"1370",482,"Cleome rutidosperma",19,2018,0
 "1371",482,"Taenitis blechnoides",2,2018,0
 "1372",482,"Leptaspis urceolata",12,2018,0
 "1373",482,"Cyrtococcum patens",43,2018,0
@@ -1396,7 +1381,7 @@
 "1395",485,"tunas sawit/anakan sawit",2,2018,0
 "1396",485,"Axonopus compressus",42,2018,0
 "1397",485,"rumput menjalar",20,2018,0
-"1398",485,"cleome rutidosperma",8,2018,0
+"1398",485,"Cleome rutidosperma",8,2018,0
 "1399",485,"batang bunga putih",3,2018,0
 "1400",486,"Clidemia hirta",16,2018,0
 "1401",486,"Cyrtococcum patens",104,2018,0
@@ -1405,7 +1390,7 @@
 "1404",486,"Melastoma malabathricum",3,2018,0
 "1405",486,"Phylanthus urinaria",6,2018,0
 "1406",486,"Borreria alata",21,2018,0
-"1407",486,"cleome rutidosperma",25,2018,0
+"1407",486,"Cleome rutidosperma",25,2018,0
 "1408",488,"Looks Like peperomia pellucida",2,2018,0
 "1409",488,"Clidemia hirta",28,2018,0
 "1410",488,"Hevea Brasiliensis",8,2018,0
@@ -1418,7 +1403,7 @@
 "1417",488,"Lindsaea ensifolia",360,2018,0
 "1418",489,"Clidemia hirta",6,2018,0
 "1419",489,"Axonopus compressus",267,2018,0
-"1420",489,"cleome rutidosperma",70,2018,0
+"1420",489,"Cleome rutidosperma",70,2018,0
 "1421",489,"Imperata cylindrica",12,2018,0
 "1422",489,"Lindernia diffusa",500,2018,0
 "1423",489,"Lindsaea ensifolia",11,2018,0
@@ -1426,12 +1411,12 @@
 "1425",495,"Davallia denticulata",8,2018,0
 "1426",495,"Lindsaea ensifolia",3,2018,0
 "1427",495,"Rothmannia macrophylla",2,2018,0
-"1428",495,"Daun Bergerigi",10,2018,0
+"1428",495,"daun bergerigi",10,2018,0
 "1429",495,"Taenitis blechnoides",25,2018,0
 "1430",495,"Adiantum latifolium",2,2018,0
 "1431",495,"Asystasia gangetica",412,2018,0
 "1432",502,"Phyllanthus urinaria",2,2018,0
-"1433",502,"Uncaria Cordata",4,2018,0
+"1433",502,"Uncaria cordata",4,2018,0
 "1434",502,"Scleria ciliaris",234,2018,0
 "1435",502,"Sirih Sirihan",8,2018,0
 "1436",502,"Calopogonium mucunoides",1,2018,0
@@ -1457,8 +1442,8 @@
 "1456",503,"Centotheca lappacea",208,2018,0
 "1457",503,"Vittaria elongata",36,2018,0
 "1458",505,"Macaranga bancana",12,2018,0
-"1459",505,"cleome rutidosperma",14,2018,0
-"1460",505,"centhoceca lappacea",176,2018,0
+"1459",505,"Cleome rutidosperma",14,2018,0
+"1460",505,"Centotheca lappacea",176,2018,0
 "1461",505,"Melastoma malabathricum",2,2018,0
 "1462",505,"Scleria ciliaris",36,2018,0
 "1463",505,"Ageratum conyzoides",1,2018,0
@@ -1483,12 +1468,12 @@
 "1482",507,"Cleome rutidosperma",28,2018,0
 "1483",508,"Tetracera indica",3,2018,0
 "1484",508,"pakis hutan",3,2018,0
-"1485",508,"melastoma malabathricum",3,2018,0
+"1485",508,"Melastoma malabathricum",3,2018,0
 "1486",508,"Scleria ciliaris",18,2018,0
-"1487",508,"centrosema pubescens",4,2018,0
+"1487",508,"Centrosema pubescens",4,2018,0
 "1488",508,"Endospermum diadenum",3,2018,0
 "1489",508,"Borreria latifolia",6,2018,0
-"1490",508,"globba pendula",41,2018,0
+"1490",508,"Globba pendula",41,2018,0
 "1491",508,"Alstonia scholaris",2,2018,0
 "1492",508,"Asystasia gangetica",2,2018,0
 "1493",508,"Molinera latifolia",2,2018,0
@@ -1496,10 +1481,10 @@
 "1495",508,"Dicranopteris linearis",1,2018,0
 "1496",508,"Ixora grandifolia",2,2018,0
 "1497",511,"Alstonia scholaris",11,2018,0
-"1498",511,"traescantia fluminensis variegata",12,2018,0
+"1498",511,"Tradescantia fluminensis variegata",12,2018,0
 "1499",511,"Asplenium nidus",8,2018,0
 "1500",511,"pandanus",6,2018,0
-"1501",511,"sauropus androgynus",11,2018,0
+"1501",511,"Sauropus androgynus",11,2018,0
 "1502",511,"DB Bulu",7,2018,0
 "1503",511,"Clidemia hirta",50,2018,0
 "1504",511,"Dicranopteris linearis",24,2018,0
@@ -1513,7 +1498,7 @@
 "1512",511,"Rambat hijau bulu",3,2018,0
 "1513",511,"mirip clidemia tapi merambat",6,2018,0
 "1514",511,"mikania micrantha",17,2018,0
-"1515",511,"taenitis blechnoides",6,2018,0
+"1515",511,"Taenitis blechnoides",6,2018,0
 "1516",515,"Scleria ciliaris",6,2018,0
 "1517",515,"Vittaria elongata",5,2018,0
 "1518",515,"Lasianthus inaequalis",5,2018,0
@@ -1544,7 +1529,7 @@
 "1543",519,"Tetracera indica",2,2018,0
 "1544",519,"Cyrtococcum patens",78,2018,0
 "1545",527,"Asystasia gangetica",27,2018,0
-"1546",527,"cirtococum patens",273,2018,0
+"1546",527,"Cyrtococcum patens",273,2018,0
 "1547",527,"Lindsaea ensifolia",23,2018,0
 "1548",527,"Lygodium circinatum",29,2018,0
 "1549",527,"Macaranga triloba",1,2018,0
@@ -1562,12 +1547,12 @@
 "1561",529,"Imperata cylindrica",32,2018,0
 "1562",529,"Lygodium salicifolium",8,2018,0
 "1563",529,"Melastoma malabathricum",3,2018,0
-"1564",529,"centhoceca lappacea",34,2018,0
+"1564",529,"Centotheca lappacea",34,2018,0
 "1565",529,"pityrogramma calomelanos",1,2018,0
 "1566",529,"Stachytarpheta indica",4,2018,0
-"1567",529,"cleome rutidosperma",22,2018,0
-"1568",529,"centiosema pubescens",2,2018,0
-"1569",529,"sphagneticola trilobata",1,2018,0
+"1567",529,"Cleome rutidosperma",22,2018,0
+"1568",529,"Centrosema pubescens",2,2018,0
+"1569",529,"Sphagneticola trilobata",1,2018,0
 "1570",537,"Lindsaea ensifolia",23,2018,0
 "1571",537,"Lygodium circinatum",29,2018,0
 "1572",537,"Cyrtococcum patens",266,2018,0
@@ -1593,12 +1578,12 @@
 "1592",541,"Lindsaea ensifolia",10,2018,0
 "1593",541,"LN: Kopi",4,2018,0
 "1594",541,"Melastoma malabathricum",4,2018,0
-"1595",541,"cleome rutidosperma",1,2018,0
+"1595",541,"Cleome rutidosperma",1,2018,0
 "1596",541,"Syzygium polyanthum",2,2018,0
 "1597",543,"Macaranga triloba",1,2018,0
 "1598",543,"pennisetum polystachion",32,2018,0
 "1599",543,"like goniophlebium",6,2018,0
-"1600",543,"cleome rutidosperma",34,2018,0
+"1600",543,"Cleome rutidosperma",34,2018,0
 "1601",543,"Cyrtococcum patens",63,2018,0
 "1602",543,"Borreria latifolia",64,2018,0
 "1603",543,"Lygodium salicifolium",5,2018,0
@@ -1616,12 +1601,12 @@
 "1615",548,"Clidemia hirta",35,2018,0
 "1616",548,"Imperata cylindrica",1,2018,0
 "1617",548,"Melastoma malabathricum",14,2018,0
-"1618",548,"scleria ciliaris",411,2018,0
-"1619",548,"lynseae ensifolia",7,2018,0
+"1618",548,"Scleria ciliaris",411,2018,0
+"1619",548,"Lindsaea ensifolia",7,2018,0
 "1620",548,"Leptaspis urceolata",47,2018,0
-"1621",548,"helminthostachys zeylanica",4,2018,0
+"1621",548,"Helminthostachys zeylanica",4,2018,0
 "1622",548,"paku merambat",68,2018,0
-"1623",548,"uncaria cordata",8,2018,0
+"1623",548,"Uncaria cordata",8,2018,0
 "1624",550,"Molinera latifolia",1,2018,0
 "1625",550,"Solanum betaceum",2,2018,0
 "1626",550,"Taenitis blechnoides",2,2018,0
@@ -1631,14 +1616,14 @@
 "1630",550,"Blechnum orientale",7,2018,0
 "1631",550,"Clidemia hirta",23,2018,0
 "1632",550,"Cyrtococcum patens",512,2018,0
-"1633",554,"cleome rutidosperma",1,2018,0
+"1633",554,"Cleome rutidosperma",1,2018,0
 "1634",554,"lygodium cf.salicifolium",2,2018,0
 "1635",555,"Endospermum diadenum",9,2018,0
 "1636",555,"Bauhinia semibifida",3,2018,0
 "1637",555,"pandan",2,2018,0
 "1638",555,"Cyrtococcum patens",312,2018,0
 "1639",555,"Leptaspis urceolata",23,2018,0
-"1640",555,"selaginella plana",16,2018,0
+"1640",555,"Selaginella plana",16,2018,0
 "1641",555,"Davallia denticulata",62,2018,0
 "1642",555,"Lindsaea ensifolia",3,2018,0
 "1643",555,"Scleria ciliaris",53,2018,0
@@ -1661,7 +1646,7 @@
 "1660",565,"Leptaspis urceolata",73,2018,0
 "1661",565,"Calopogonium mucunoides",4,2018,0
 "1662",565,"Amplas kijang",49,2018,0
-"1663",565,"Centrosema Pubesens",3,2018,0
+"1663",565,"Centrosema pubescens",3,2018,0
 "1664",565,"Lygodium circinatum",8,2018,0
 "1665",565,"Macaranga bancana",2,2018,0
 "1666",565,"Melastoma malabathricum",9,2018,0
@@ -1670,7 +1655,7 @@
 "1669",565,"Scleria ciliaris",8,2018,0
 "1670",565,"Stenochlaena palustris",8,2018,0
 "1671",565,"Tetracera indica",5,2018,0
-"1672",565,"Passiflora Foetida",2,2018,0
+"1672",565,"Passiflora foetida",2,2018,0
 "1673",569,"Centrosema pubescens",38,2018,0
 "1674",569,"Leptaspis urceolata",20,2018,0
 "1675",569,"Endospermum diadenum",2,2018,0
@@ -1712,11 +1697,11 @@
 "1711",575,"Mussaenda frondosa",10,2018,0
 "1712",575,"Endospermum diadenum",2,2018,0
 "1713",575,"Lasianthus inaequalis",3,2018,0
-"1714",575,"Centrosema Pubescens",8,2018,0
+"1714",575,"Centrosema pubescens",8,2018,0
 "1715",575,"Rothmannia macrophylla",3,2018,0
 "1716",575,"Leptaspis urceolata",20,2018,0
 "1717",577,"Cyrtococcum patens",20,2018,0
-"1718",577,"elaeis guineensis",7,2018,0
+"1718",577,"Elaeis guineensis",7,2018,0
 "1719",577,"Hevea Brasiliensis",5,2018,0
 "1720",577,"Scleria ciliaris",7,2018,0
 "1721",577,"Centotheca lappacea",245,2018,0
@@ -1732,7 +1717,7 @@
 "1731",578,"Centotheca lappacea",38,2018,0
 "1732",578,"Rothmannia macrophylla",5,2018,0
 "1733",578,"Poikilospermum suaveolens",19,2018,0
-"1734",578,"torenia violacea",6,2018,0
+"1734",578,"Torenia violacea",6,2018,0
 "1735",578,"Helminthostachys zeylanica",26,2018,0
 "1736",578,"Cyrtococcum patens",1785,2018,0
 "1737",578,"Tradescantia fluminensis variegata",13,2018,0
@@ -1786,18 +1771,18 @@
 "1784",588,"Ottochloa nodosa",73,2018,0
 "1785",588,"Phyllanthus urinaria",8,2018,0
 "1786",588,"Scleria ciliaris",142,2018,0
-"1787",588,"Spermaococe cristata",42,2018,0
+"1787",588,"Spermacoce cristata",42,2018,0
 "1788",588,"Leptaspis urceolata",23,2018,0
 "1789",588,"Axonopus compressus",33,2018,0
 "1790",588,"Clidemia hirta",25,2018,0
 "1791",588,"Dicranopteris linearis",12,2018,0
 "1792",588,"Macaranga bancana",4,2018,0
-"1793",588,"Cleome Rutidosperma",32,2018,0
+"1793",588,"Cleome rutidosperma",32,2018,0
 "1794",590,"mirip obat kuat menjalar",4,2018,0
 "1795",590,"Cyrtococcum patens",6,2018,0
 "1796",590,"lygodium cf salicifolium",6,2018,0
 "1797",590,"mirip marantodes pumilium",2,2018,0
-"1798",590,"leptaspis urcedata",4,2018,0
+"1798",590,"Leptaspis urceolata",4,2018,0
 "1799",590,"Adiantum latifolium",3,2018,0
 "1800",590,"Asystasia gangetica",3,2018,0
 "1801",590,"Clidemia hirta",15,2018,0
@@ -1819,11 +1804,11 @@
 "1817",599,"Dicranopteris linearis",56,2018,0
 "1818",599,"Macaranga bancana",2,2018,0
 "1819",599,"Melastoma malabathricum",8,2018,0
-"1820",599,"daun lebar",4,2018,0
-"1821",599,"stenochlaena palustris",21,2018,0
+"1820",599,"Daun Lebar",4,2018,0
+"1821",599,"Stenochlaena palustris",21,2018,0
 "1822",599,"Cyrtococcum patens",425,2018,0
 "1823",599,"daun ibu",1,2018,0
-"1824",600,"stenochlaena palustris",32,2018,0
+"1824",600,"Stenochlaena palustris",32,2018,0
 "1825",600,"Cyrtococcum patens",412,2018,0
 "1826",600,"daun ribu",4,2018,0
 "1827",600,"kandis",4,2018,0
@@ -1835,20 +1820,20 @@
 "1833",609,"Taenitis blechnoides",6,2018,0
 "1834",609,"Clidemia hirta",9,2018,0
 "1835",609,"Lindsaea ensifolia",11,2018,0
-"1836",609,"Spermaococe cristata",15,2018,0
+"1836",609,"Spermacoce cristata",15,2018,0
 "1837",609,"Globba pendula",27,2018,0
 "1838",609,"Endospermum diadenum",3,2018,0
 "1839",609,"Centotheca lappacea",10,2018,0
 "1840",609,"Rothmannia macrophylla",23,2018,0
 "1841",610,"Clidemia hirta",39,2018,0
-"1842",610,"Centhoceca lappacea",14,2018,0
+"1842",610,"Centotheca lappacea",14,2018,0
 "1843",610,"Paku",8,2018,0
 "1844",610,"Daun Lebar",62,2018,0
 "1845",610,"Daun Imut",2,2018,0
 "1846",611,"Tetracera indica",1,2018,0
-"1847",611,"No Name",11,2018,0
+"1847",611,"No Name 2",11,2018,0
 "1848",611,"Mussaenda frondosa",8,2018,0
-"1849",611,"Selaginella Plana",41,2018,0
+"1849",611,"Selaginella plana",41,2018,0
 "1850",611,"Adiantum latifolium",32,2018,0
 "1851",611,"Clidemia hirta",67,2018,0
 "1852",611,"Dicranopteris linearis",24,2018,0
@@ -1872,7 +1857,7 @@
 "1870",615,"Paku buluh",11,2018,0
 "1871",615,"Rolandra fruticosa",2,2018,0
 "1872",615,"Cyrtococcum patens",483,2018,0
-"1873",615,"Palm oil",2,2018,0
+"1873",615,"Elaeis guineensis",2,2018,0
 "1874",619,"Adiantum latifolium",11,2018,0
 "1875",619,"Endospermum diadenum",4,2018,0
 "1876",619,"Davalia orientale",5,2018,0
@@ -1914,9 +1899,9 @@
 "1912",632,"MS: Daun love merambat",4,2018,0
 "1913",632,"Scleria ciliaris",83,2018,0
 "1914",632,"Tetracera indica",3,2018,0
-"1915",633,"Centrocema",20,2018,0
+"1915",633,"Centrosema pubescens",20,2018,0
 "1916",633,"Laos laosan",9,2018,0
-"1917",633,"Calopogonium",5,2018,0
+"1917",633,"Calopogonium mucunoides",5,2018,0
 "1918",633,"Mallotus peltatus",11,2018,0
 "1919",633,"Paku cemara",56,2018,0
 "1920",633,"Blechnum orientale",15,2018,0
@@ -1927,13 +1912,13 @@
 "1925",633,"Rolandra fruticosa",10,2018,0
 "1926",633,"Sengkuang",50,2018,0
 "1927",633,"Cyrtococcum patens",89,2018,0
-"1928",633,"Clibadium",23,2018,0
+"1928",633,"Clibadium surinamense",23,2018,0
 "1929",633,"Daun sirih hutan",3,2018,0
-"1930",633,"Leptaspis",83,2018,0
+"1930",633,"Leptaspis urceolata",83,2018,0
 "1931",633,"Daun salam",122,2018,0
-"1932",635,"selaginella plana",13,2018,0
+"1932",635,"Selaginella plana",13,2018,0
 "1933",635,"Marantodes pumilum",8,2018,0
-"1934",635,"Globa pendula",8,2018,0
+"1934",635,"Globba pendula",8,2018,0
 "1935",635,"Asplenium glaucophyllum",8,2018,0
 "1936",635,"Peperomia pellucida",12,2018,0
 "1937",635,"Endospermum diadenum",46,2018,0
@@ -1943,7 +1928,7 @@
 "1941",638,"Axonopus compressus",324,2018,0
 "1942",638,"Sungkai",1,2018,0
 "1943",638,"Endospermum diadenum",3,2018,0
-"1944",638,"Passiflora Foetida",2,2018,0
+"1944",638,"Passiflora foetida",2,2018,0
 "1945",638,"Cyrtococcum patens",4589,2018,0
 "1946",638,"Paku Cemara",6,2018,0
 "1947",638,"Clidemia hirta",17,2018,0
@@ -1952,7 +1937,7 @@
 "1950",638,"Lygodium salicifolium",6,2018,0
 "1951",638,"Melastoma malabathricum",1,2018,0
 "1952",638,"Mikania micrantha",3,2018,0
-"1953",638,"Spermaococe cristata",3,2018,0
+"1953",638,"Spermacoce cristata",3,2018,0
 "1954",638,"Tetracera indica",1,2018,0
 "1955",638,"Leptaspis urceolata",15,2018,0
 "1956",638,"Duku",8,2018,0
@@ -1975,7 +1960,7 @@
 "1973",639,"Pouzolzia Zeylanica",2,2018,0
 "1974",639,"Leptaspis urceolata",12,2018,0
 "1975",639,"Endospermum diadenum",1,2018,0
-"1976",639,"Durian",1,2018,0
+"1976",639,"Durio zibethinus",1,2018,0
 "1977",641,"Clidemia hirta",15,2018,0
 "1978",641,"Tetracera indica",6,2018,0
 "1979",641,"LN: Laos- Laosan",3,2018,0
@@ -1984,14 +1969,14 @@
 "1982",641,"Blechnum orientale",1,2018,0
 "1983",641,"Lasianthus inaequalis",2,2018,0
 "1984",641,"Eulophia Spectabilis",2,2018,0
-"1985",641,"Endospermum Duodenum",2,2018,0
+"1985",641,"Endospermum diadenum",2,2018,0
 "1986",641,"Paku Pipih",3,2018,0
 "1987",641,"Paku Lebar",5,2018,0
 "1988",641,"Sungkai",6,2018,0
 "1989",641,"Paku Cemara",29,2018,0
 "1990",641,"Asplenium glaucophyllum",2,2018,0
 "1991",641,"Rothmannia macrophylla",5,2018,0
-"1992",641,"Cheilocostus Speciosus",3,2018,0
+"1992",641,"Cheilocostus speciosus",3,2018,0
 "1993",641,"Daun Lirik",9,2018,0
 "1994",641,"Daun Kunyit kunyitan",6,2018,0
 "1995",649,"Asystasia gangetica",63,2018,0
@@ -1999,7 +1984,7 @@
 "1997",649,"Paku Cemara",32,2018,0
 "1998",649,"Lindsaea Salicifolium",5,2018,0
 "1999",649,"Mirip Macaranga (love)",4,2018,0
-"2000",649,"Uncaria Cordata",1,2018,0
+"2000",649,"Uncaria cordata",1,2018,0
 "2001",649,"Blechnum orientale",5,2018,0
 "2002",649,"Chromolaena odorata",4,2018,0
 "2003",649,"Clidemia hirta",85,2018,0
@@ -2015,17 +2000,17 @@
 "2013",650,"Amplas kijang",15,2018,0
 "2014",650,"Cyrtococcum patens",124,2018,0
 "2015",650,"Lasianthus inaequalis",9,2018,0
-"2016",650,"Centrosema Pubescens",6,2018,0
+"2016",650,"Centrosema pubescens",6,2018,0
 "2017",650,"Blechnum orientale",36,2018,0
 "2018",650,"Clidemia hirta",134,2018,0
 "2019",650,"Goniophlebium verrucosum",12,2018,0
 "2020",650,"LN: Laos- Laosan",2,2018,0
 "2021",650,"Molinera latifolia",1,2018,0
 "2022",650,"Scleria ciliaris",3,2018,0
-"2023",650,"Sauropus androgynus (daun katu)",1,2018,0
+"2023",650,"Sauropus androgynus",1,2018,0
 "2024",650,"Calopogonium mucunoides",8,2018,0
 "2025",654,"Centotheca lappacea",211,2018,0
-"2026",654,"Cuphea carthagenesis",164,2018,0
+"2026",654,"Cuphea carthagenensis",164,2018,0
 "2027",654,"Cleome rutidosperma",1,2018,0
 "2028",654,"Globba pendula",476,2018,0
 "2029",654,"Rothmannia macrophylla",1,2018,0
@@ -2078,10 +2063,10 @@
 "2076",667,"Looks Like Tetracera Indica",28,2018,0
 "2077",667,"Macaranga bancana",1,2018,0
 "2078",667,"Looks like cleome rutidosperma",18,2018,0
-"2079",667,"Uncaria Cordata",11,2018,0
+"2079",667,"Uncaria cordata",11,2018,0
 "2080",667,"Cyrtococcum patens",23,2018,0
 "2081",667,"Mallotus peltatus",1,2018,0
-"2082",667,"No Name",1,2018,0
+"2082",667,"No Name 3",1,2018,0
 "2083",670,"Clidemia hirta",68,2018,0
 "2084",670,"Melastoma malabathricum",52,2018,0
 "2085",670,"Dicranopteris linearis",8,2018,0
@@ -2109,7 +2094,7 @@
 "2107",675,"Lindsaea ensifolia",628,2018,0
 "2108",675,"Scleria ciliaris",27,2018,0
 "2109",675,"Cyrtococcum patens",36,2018,0
-"2110",675,"No Name",2,2018,0
+"2110",675,"No Name 4",2,2018,0
 "2111",676,"Clidemia hirta",19,2018,0
 "2112",676,"Taenitis blechnoides",1,2018,0
 "2113",676,"Lindsaea ensifolia",4,2018,0
@@ -2134,7 +2119,7 @@
 "2132",678,"Kantong Semar",10,2018,0
 "2133",678,"Colocasia Esculenta",1,2018,0
 "2134",678,"Sirih Hutan",5,2018,0
-"2135",678,"Daun Bergerigi",11,2018,0
+"2135",678,"daun bergerigi",11,2018,0
 "2136",678,"Bunga Hitam",2,2018,0
 "2137",678,"Bunga Merah",5,2018,0
 "2138",678,"Daun Rambutan",3,2018,0
@@ -2170,7 +2155,7 @@
 "2168",690,"Axonopus compressus",22,2018,0
 "2169",690,"Clidemia hirta",349,2018,0
 "2170",690,"Scleria sumatrensis",46,2018,0
-"2171",690,"Paku Wayang",8,2018,0
+"2171",690,"Paku wayang",8,2018,0
 "2172",690,"Melastoma malabathricum",104,2018,0
 "2173",690,"Scleria ciliaris",22,2018,0
 "2174",690,"Batang Daun Berbulu",3,2018,0
@@ -2201,7 +2186,7 @@
 "2199",699,"Alstonia scholaris",9,2018,0
 "2200",699,"Archidendron pauciflorum",1,2018,0
 "2201",699,"Borreria alata",4,2018,0
-"2202",699,"Durio zibethius",2,2018,0
+"2202",699,"Durio zibethinus",2,2018,0
 "2203",699,"Chromolaena odorata",2,2018,0
 "2204",699,"Clidemia hirta",43,2018,0
 "2205",699,"Macaranga bancana",1,2018,0
@@ -2217,9 +2202,9 @@
 "2215",396,"Scleria ciliaris",18,2018,1
 "2216",396,"dillenia philippinansis",3,2018,1
 "2217",396,"Cyrtococcum patens",12,2018,1
-"2218",396,"tradescantia fluminensis variegata",8,2018,1
-"2219",396,"penissetum polystachion",64,2018,1
-"2220",396,"torenia violacea",8,2018,1
+"2218",396,"Tradescantia fluminensis variegata",8,2018,1
+"2219",396,"pennisetum polystachion",64,2018,1
+"2220",396,"Torenia violacea",8,2018,1
 "2221",396,"genus american chesnut",2,2018,1
 "2222",396,"pouzalzia zeylanica",6,2018,1
 "2223",396,"ficus variegata",3,2018,1
@@ -2233,7 +2218,7 @@
 "2231",407,"Pityrograma calomelanos",3,2018,1
 "2232",407,"Borreria alata",11,2018,1
 "2233",407,"Cleome rutidosperma",17,2018,1
-"2234",407,"Pennisetum polystachion",21,2018,1
+"2234",407,"pennisetum polystachion",21,2018,1
 "2235",407,"Centotheca lappacea",47,2018,1
 "2236",407,"Calopogonium mucunoides",12,2018,1
 "2237",421,"Ludwigia octovalvis",6,2018,1
@@ -2243,7 +2228,7 @@
 "2241",421,"Scleria ciliaris",1059,2018,1
 "2242",421,"Cyrtococcum patens",1093,2018,1
 "2243",421,"Paspalum dilatatum",423,2018,1
-"2244",421,"merremia umbelleta",18,2018,1
+"2244",421,"Merremia umbellata",18,2018,1
 "2245",421,"mirip daun jeruk",3,2018,1
 "2246",422,"Asystasia gangetica",312,2018,1
 "2247",422,"Imperata cylindrica",57,2018,1
@@ -2265,7 +2250,7 @@
 "2263",431,"Centotheca lappacea",31,2018,1
 "2264",431,"Uncaria cordata",4,2018,1
 "2265",431,"Stachytarpheta urinaria",3,2018,1
-"2266",431,"Cuphea carthagenesis",15,2018,1
+"2266",431,"Cuphea carthagenensis",15,2018,1
 "2267",438,"Asystasia gangetica",31,2018,1
 "2268",438,"Axonopus compressus",1025,2018,1
 "2269",438,"Clidemia hirta",22,2018,1
@@ -2285,7 +2270,6 @@
 "2283",439,"Stenochlaena palustris",55,2018,1
 "2284",439,"Crassocephalum crepidioides",15,2018,1
 "2285",439,"Cyrtococcum patens",3201,2018,1
-"2286",439,"Lindsaea Ensifolia",11,2018,1
 "2287",510,"Asystasia gangetica",13,2018,1
 "2288",510,"Axonopus compressus",12,2018,1
 "2289",510,"Blechnum orientale",6,2018,1
@@ -2299,11 +2283,11 @@
 "2297",510,"Cyrtococcum patens",106,2018,1
 "2298",510,"rambat jok",10,2018,1
 "2299",510,"daun bulu tipis",13,2018,1
-"2300",510,"centhoteca lappacea",12,2018,1
+"2300",510,"Centotheca lappacea",12,2018,1
 "2301",510,"Leptaspis urceolata",11,2018,1
 "2302",510,"piper nigrum",7,2018,1
 "2303",510,"mirip daun tembakau",2,2018,1
-"2304",510,"peperomia pellucida",2,2018,1
+"2304",510,"Peperomia pellucida",2,2018,1
 "2305",510,"genus american chesnut",8,2018,1
 "2306",520,"Clidemia hirta",3,2018,1
 "2307",520,"Davallia denticulata",2,2018,1
@@ -2319,9 +2303,9 @@
 "2317",546,"Scleria ciliaris",19,2018,1
 "2318",546,"Taenitis blechnoides",2,2018,1
 "2319",546,"pakis hutan",33,2018,1
-"2320",546,"sauropus androgynus",7,2018,1
+"2320",546,"Sauropus androgynus",7,2018,1
 "2321",546,"Centotheca lappacea",11,2018,1
-"2322",546,"cyrtoccocum patens",6,2018,1
+"2322",546,"Cyrtococcum patens",6,2018,1
 "2323",556,"Axonopus compressus",6,2018,1
 "2324",556,"Clidemia hirta",19,2018,1
 "2325",556,"Dicranopteris linearis",13,2018,1
@@ -2331,7 +2315,7 @@
 "2329",556,"Scleria ciliaris",16,2018,1
 "2330",556,"Taenitis blechnoides",4,2018,1
 "2331",556,"pouzolzia zeylania",2,2018,1
-"2332",556,"ophioglossum pendulum",2,2018,1
+"2332",556,"Ophioglossum pendulum",2,2018,1
 "2333",556,"kayu berumbung",1,2018,1
 "2334",568,"Axonopus compressus",6,2018,1
 "2335",568,"Clidemia hirta",7,2018,1
@@ -2353,12 +2337,12 @@
 "2351",593,"Melastoma malabathricum",5,2018,1
 "2352",593,"Phylanthus urinaria",2,2018,1
 "2353",593,"Scleria ciliaris",2,2018,1
-"2354",593,"scoparia dulcis",29,2018,1
+"2354",593,"Scoparia dulcis",29,2018,1
 "2355",593,"Centotheca lappacea",116,2018,1
 "2356",593,"Endospermum diadenum",2,2018,1
 "2357",593,"Acmella paniculata",7,2018,1
 "2358",593,"Paspalum dilatatum",2,2018,1
-"2359",593,"urena lobata",6,2018,1
+"2359",593,"Urena lobata",6,2018,1
 "2360",593,"cleome berbulu",1,2018,1
 "2361",593,"kayu plangas",4,2018,1
 "2362",593,"endospermum bergerigi",7,2018,1
@@ -2385,7 +2369,7 @@
 "2383",642,"Rothmannia macrophylla",2,2018,1
 "2384",642,"daun bergerigi",1,2018,1
 "2385",642,"Daun katu hutan",1,2018,1
-"2386",642,"Uncaria Cordata",1,2018,1
+"2386",642,"Uncaria cordata",1,2018,1
 "2387",643,"Axonopus compressus",53,2018,1
 "2388",643,"Clidemia hirta",58,2018,1
 "2389",643,"Lygodium circinatum",8,2018,1
@@ -2411,7 +2395,7 @@
 "2409",645,"Scleria ciliaris",23,2018,1
 "2410",645,"Leptaspis urceolata",13,2018,1
 "2411",645,"Cyrtococcum patens",114,2018,1
-"2412",645,"Pennisetum Polystachion",24,2018,1
+"2412",645,"pennisetum polystachion",24,2018,1
 "2413",645,"Endospermum diadenum",1,2018,1
 "2414",645,"Mirip Jati",2,2018,1
 "2415",645,"Daun Katu",2,2018,1
