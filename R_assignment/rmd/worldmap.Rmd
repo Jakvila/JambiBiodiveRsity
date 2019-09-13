@@ -1,0 +1,100 @@
+---
+title: "Worldmap in R"
+author: "The R class"
+date: "15 March 2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+R can be used to carry out a large variety of GIS exercises. In this document we'd like to build a world map showing GDP per capita.
+
+## Getting data
+
+Geo data in R are available through package extensions. An easy and straightforward repository of map data is implemented in the \texttt{ggplot2} package, where we can download data using the \texttt{map\_data()} function: 
+```{r mapData, warning=F, message=F}
+library(maps)
+library(ggplot2)
+worldmap = map_data("world")
+
+# ggplot() +
+#   geom_polygon(data = worldmap, aes(x = long, y = lat, group = group))
+
+# class(worldmap)
+# str(worldmap)
+# 
+# ?codelist
+```
+which provides an object of class \texttt{data.frame} containing latitude and longitude data points. Next, we want to download GDP per capita figures directly through the World bank API (package \texttt{WDI}):
+```{r GDP, warning=F, message=F}
+library(WDI)
+#WDIsearch("GDP")
+GDP = WDI(country = "all", indicator = "NY.GDP.PCAP.PP.KD", start = 2014, end = 2014)
+```
+\texttt{WDIsearch} can be used to look up indicators based on regular expressions. Once you find the indicator you would like to use, the indicator code can be copied into the \texttt{WDI} function call along with other arguments to download the desired data.
+
+Now the map data looks like
+```{r map, warning=F, message=F}
+head(worldmap)
+```
+and the \texttt{GDP} data looks like
+```{r gdp, warning=F, message=F}
+head(GDP)
+```
+In order to plot both data in one object, we need to merge the two datasets. However, there is no identifying variable in \textbf{both} datasets. In order to obtain a uniquely identifying vector, we define a new variable in the map dataset which provides the corresponding iso2c codes for each country respectively, making use of the package \texttt{countrycode}:
+
+```{r countrycode, warning=F, message=F}
+library(countrycode)
+worldmap$iso2c = countrycode(worldmap$region, "country.name", "iso2c")
+```
+Now the data can be merged:
+
+```{r merge, warning=F, message=F}
+
+###
+worldmap.gdp = merge(worldmap, GDP, by = "iso2c", all.x = TRUE)
+worldmap.gdp = worldmap.gdp[order(worldmap.gdp$order),]
+```
+Note that \texttt{all.x=T} ensures that all necessary latitude and longitude data will be kept, even if no GDP data is available for a given country. The variable \texttt{order} will be used by the plotting device and should be kept in ascending order. In order to insure that The resulting \texttt{data.frame} looks like:
+```{r gdpmapdata, warning=F, message=F}
+head(worldmap.gdp)
+```
+
+```{r mapplot, warning=F, message=F}
+worldmap.gdp = worldmap.gdp[worldmap.gdp$region != "Antarctica",]
+ggplot()+
+  geom_polygon(data = worldmap.gdp, aes(x = long, y = lat, group = group, fill=NY.GDP.PCAP.PP.KD))+
+  coord_equal()+
+  scale_fill_gradient(trans = "log",breaks=c(0, 500, 1000,2000, 4000, 8000, 16000,32000,64000),
+                      labels = c("0", "<500", "500-1000", "100-2000", "2000-4000",
+                                 "4000-16000", "16000-32000", "32-64000", ">64000"),
+                      low="yellow", high="red") +
+    theme_minimal() + xlab(NULL) + ylab(NULL) +
+  guides(fill = guide_legend(
+    title='GDP per capita (nominal USD)',
+    keywidth = 0.7, keyheight = 0.7,
+    reverse=F, title.position="top")) +
+  theme(
+    legend.title = element_text(size=10),
+    plot.background = element_blank()
+    ,panel.grid.major = element_blank()
+    ,panel.grid.minor = element_blank()
+    ,panel.border = element_blank()
+    ,axis.ticks = element_blank()
+    ,axis.text.x = element_blank()
+    ,axis.text.y = element_blank()
+    ,legend.position = "bottom"
+    ,legend.direction = "horizontal"
+  ) +
+ geom_point(aes(x= -73.989163, y = 40.730152), size = 1.5)+
+ geom_text(aes(x= -55.989163, y = 41.730152), size = 2, label = "New York City")  +
+ 
+ geom_point(aes(x= 9.934404, y = 51.532841), size = 1.5)+
+   geom_text(aes(x= -5.5, y = 51.532841), size = 2, label = "Goettingen")  
+```

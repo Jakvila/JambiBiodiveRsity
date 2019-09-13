@@ -48,6 +48,18 @@ rbindlist(lapply(unique(data[wave =="2015",hid]), cleanUnknownToKnown))
 
 length(table(data[wave=="2015",SpeciesName]))
 
+# find out how many species we have less now
+
+
+length(unique(test[,SpeciesName]))
+
+length(unique(data2015[,SpeciesName]))
+
+length(data2015[SpeciesName=="Unident_ 1"])
+
+length(test[SpeciesName=="Unident_ 1"])
+
+
 
 
  
