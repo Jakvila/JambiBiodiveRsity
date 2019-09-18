@@ -57,9 +57,28 @@ length(unique(data2015[,SpeciesName]))
 
 length(data2015[SpeciesName=="Unident_ 1"])
 
-length(test[SpeciesName=="Unident_ 1"])
+length(data_noduplicates[SpeciesName=="Unident_1"])
+
+
+Veg2015 <- test
+write.csv(Veg2015, "Veg2015_unidentcorrected.csv")
+
+
+
+VegetationUnidentCorrected <- rbind(subset(data, wave == 2018), subset(data, wave == 2012))
+VegetationUnidentCorrected <- rbind(Veg2015, VegetationUnidentCorrected)
+VegetationUnidentCorrected$X <- NULL
+
+VegetationUnidentCorrected[VegetationUnidentCorrected$wave==2018]
+
+VegetationUnidentCorrected[VegetationUnidentCorrected$wave==2012]
+
+VegetationUnidentCorrected[VegetationUnidentCorrected$wave==2015]
 
 
 
 
- 
+
+
+
+
