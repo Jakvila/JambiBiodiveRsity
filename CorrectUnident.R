@@ -55,9 +55,9 @@ length(unique(test[,SpeciesName]))
 
 length(unique(data2015[,SpeciesName]))
 
-length(data2015[SpeciesName=="Unident_ 1"])
+length(data2015[,SpeciesName=="Unident_ 1"])
 
-length(data_noduplicates[SpeciesName=="Unident_1"])
+length(data2015[,SpeciesName=="Unident_1"])
 
 
 Veg2015 <- test
@@ -75,6 +75,8 @@ VegetationUnidentCorrected[VegetationUnidentCorrected$wave==2012]
 
 VegetationUnidentCorrected[VegetationUnidentCorrected$wave==2015]
 
+
+write.csv( VegetationUnidentCorrected , "VegetationUnidentCorrected.csv")
 
 
 
