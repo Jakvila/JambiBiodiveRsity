@@ -70,18 +70,24 @@ TotalAbundance = data.table(aggregate(data = VegetationData2015,  Abundance ~ wa
 
 InvasiveAbundance = VegetationData2015[Invasive == "Invasive", list(InvasiveAbundance = sum(Abundance), num = .N), by = .(HHCode, wave)]
 
+VegetationData2015$Abundance[is.na(VegetationData2015$Abundance)] = 0
 VegetationData2015$hid <- as.numeric(as.character(VegetationData2015$hid))
-matrix_wide_2015 = dcast(data = VegetationData2015,  wave + hid ~ SpeciesName, value.var = "Abundance")
+
+Duplicated2015 = VegetationData2015[duplicated(VegetationData2015 [, .(hid, SpeciesName)])==T,]
+VegetationData2015 <- distinct(VegetationData2015, hid, SpeciesName, .keep_all = T)
+
+matrix_wide_2015 = dcast(data = VegetationData2015,  hid ~ SpeciesName, value.var = "Abundance")
 matrix_wide_2015[is.na(matrix_wide_2015)] = 0
 
 
 simpson2015 <- diversity(matrix_wide_2015[, -(1:2)], "simpson")
+simpson2015 <- data.frame(simpson2015, matrix_wide_2015$hid)
+names(simpson2015) <- c("simpson", "HHCode")
 
-VegetationData2015$hid <- as.numeric(as.character(VegetationData2015$hid))
+
 shannon2015 <- diversity(matrix_wide_2015)
-
-shannon2015 <- data.frame(shannon2015, DiversityData$HHCode)
-names(shannon2015) <- c("shannon", "HHCode")
+shannon2015 <- data.frame(shannon2015, matrix_wide_2015$hid)
+names(shannon2015) <- c("shannon", "hid")
 
 # connect the right regencies with the hids/hhcodes
 
@@ -200,9 +206,14 @@ Duplicated2012 = VegetationData2012[duplicated(VegetationData2012 [, .(hid, Spec
  shannon2012 <- diversity(matrix_wide_2012)
  shannon2012 <- data.frame(shannon2012, matrix_wide_2012$hid)
  
+ simpson2012 <- diversity(matrix_wide_2012, index="simpson")
+ simpson2012 <- data.frame(simpson2012, matrix_wide_2012$hid)
  
- names(shannon2012) <- c("shannon", "hid")
-
+ 
+  names(shannon2012) <- c("shannon", "hid")
+  names(simpson2018) <- c("simpson", "hid")
+  
+  
 ############ bring indices to the household IDs
 
  

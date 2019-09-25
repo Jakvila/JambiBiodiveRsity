@@ -55,10 +55,11 @@ library(knitr)
 library(data.table)
 library(ggplot2)
 
+setwd("C:/Users/jakob/MA/Neuer Ordner/JambiBiodiveRsity/JambiBiodiveRsity/descriptives")
 
-VegetationData2018 <- read.csv("Vegetation2018_correctedstrings.csv")
+VegetationUnidentCorrected <- read.csv("VegetationUnidentCorrected.csv")
 
-SpeciesNumbers <- setDT(VegetationData2018)[, .(count= uniqueN(SpeciesName)), by = hid]
+SpeciesNumbers <- setDT(VegetationUnidentCorrected)[, .(count= uniqueN(SpeciesName)), by = hid]
 names(SpeciesNumbers) <- c("household ID", "Number of species")
 
 kable(SpeciesNumbers[1:10,], row.names = FALSE, caption="Data extract")
@@ -220,7 +221,7 @@ kable(SpeciesFreq2018, row.names = FALSE, caption="The most frequent species")
 
 ### Mapping
 
-### before
+#### before
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
 library(raster)
@@ -238,7 +239,10 @@ require("ggplot2")
 require("plyr")
 library(ggrepel)
 library(ggsn)
- 
+
+
+setwd("C:/Users/jakob/MA/Neuer Ordner/JambiBiodiveRsity/JambiBiodiveRsity/R_assignment")
+
 FarmerPlot2018 <- read.xlsx("Farmer & Plot Table.xlsx")
 Vegetation2018 <- read.csv("Shannon2018.csv")
 Vegetation2015 <- read.csv("Shannon2015.csv")
@@ -378,6 +382,8 @@ ggplot(data=JambiDF1, aes(x=long, y=lat, group= group, fill=Shannon)) +
 ```
 
 
+#### after
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
 library(raster)
@@ -395,17 +401,20 @@ require("ggplot2")
 require("plyr")
 library(ggrepel)
 library(ggsn)
+
+
+setwd("C:/Users/jakob/MA/Neuer Ordner/JambiBiodiveRsity/JambiBiodiveRsity/descriptives")
  
 FarmerPlot2018 <- read.xlsx("Farmer & Plot Table.xlsx")
 Vegetation2018 <- read.csv("Shannon2018.csv")
 Vegetation2015 <- read.csv("Shannon2015.csv")
 Vegetation2012 <- read.csv("Shannon2012.csv")
 
-hhcodes2015 <- read.csv("hhcodes2015duplicated.csv")
-  hhcodes2015$x <- NULL
-  hhcodes2015 <- distinct(hhcodes2015, hid, HHCode)
-  hhcodes2015$HHCode <- gsub("\\,", ".", hhcodes2015$HHCode)
-Vegetation2015 <- merge(hhcodes2015, Vegetation2015, by="HHCode")
+# hhcodes2015 <- read.csv("hhcodes2015duplicated.csv")
+#  hhcodes2015$x <- NULL
+#  hhcodes2015 <- distinct(hhcodes2015, hid, HHCode)
+#  hhcodes2015$HHCode <- gsub("\\,", ".", hhcodes2015$HHCode)
+# Vegetation2015 <- merge(hhcodes2015, Vegetation2015, by="HHCode")
 
 # merge shannon data with the plot information
 Vegetation2015 <- merge(Vegetation2015, FarmerPlot2018, by="hid")
@@ -416,18 +425,18 @@ Vegetation2018 <- merge(Vegetation2018, FarmerPlot2018, by="hid")
 # SpeciesinRegency <- setDT(Vegetation2018)[, .(mean= uniqueN(shannon)), by = Regency]
 # SpeciesinRegency2012 <- setDT(Vegetation2012)[, .(count= uniqueN(SpeciesName)), by = Regency]
 # SpeciesinRegency2015 <- setDT(Vegetation2015)[, .(count= uniqueN(SpeciesName)), by = Regency]
-SpeciesinRegency <- aggregate(Vegetation2018$shannon, list(Vegetation2018$Regency), mean)
+SpeciesinRegency2018 <- aggregate(Vegetation2018$shannon, list(Vegetation2018$Regency), mean)
 SpeciesinRegency2015 <- aggregate(Vegetation2015$shannon, list(Vegetation2015$Regency), mean)
 SpeciesinRegency2012 <- aggregate(Vegetation2012$shannon, list(Vegetation2012$Regency), mean)
 
 
 
-names(SpeciesinRegency) <- c("regency", "Shannon")
+names(SpeciesinRegency2018) <- c("regency", "Shannon")
 names(SpeciesinRegency2015) <- c("regency", "Shannon")
 names(SpeciesinRegency2012) <- c("regency", "Shannon")
 
 # add the IDs of the regencies manually.. necessary as we only have data for 5, not for all 11 regencies
-SpeciesinRegency$id <- c(473, 465, 472, 467, 468)
+SpeciesinRegency2018$id <- c(473, 465, 472, 467, 468)
 SpeciesinRegency2015$id <- c(473, 465, 472, 467, 468)
 SpeciesinRegency2012$id <- c(473, 465, 472, 467, 468)
 
@@ -438,10 +447,10 @@ Jambi@data$id <- rownames(Jambi@data)
 
 regencyID <- cbind.data.frame(as.numeric(Jambi@data$id),Jambi@data$NAME_2)
 names(regencyID) <- c("id", "regency")
-SpeciesinRegency <- merge(regencyID, SpeciesinRegency, all.x=TRUE, by="id")
-SpeciesinRegency$regency.y <- NULL
-SpeciesinRegency$regency <- SpeciesinRegency$regency.x
-SpeciesinRegency$regency.x <- NULL
+SpeciesinRegency2018 <- merge(regencyID, SpeciesinRegency2018, all.x=TRUE, by="id")
+SpeciesinRegency2018$regency.y <- NULL
+SpeciesinRegency2018$regency <- SpeciesinRegency2018$regency.x
+SpeciesinRegency2018$regency.x <- NULL
 
 # create a data.frame from our spatial object
 
@@ -452,7 +461,7 @@ JambiPoints <- fortify(Jambi, regency = "id")
 JambiDF <- merge(JambiPoints, Jambi@data, by = "id")
 invisible(head(JambiDF))
 
-JambiDF1 <- merge(JambiDF, SpeciesinRegency, by="id",all.x=T)
+JambiDF1 <- merge(JambiDF, SpeciesinRegency2018, by="id",all.x=T)
 
 ggplot(data=JambiDF1, aes(x=long, y=lat, group= group, fill=Shannon)) +
         geom_polygon(color="white") + scale_fill_gradient(limits = c(0.8,1.8),
