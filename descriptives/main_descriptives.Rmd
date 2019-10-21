@@ -133,9 +133,12 @@ obs_number$wave <- c(2018, 2015, 2012)
 
 obs_number$`Number of observations` <- as.numeric(as.character(obs_number$`Number of observations`))
 
-ggplot(data=obs_number) +   geom_bar(aes(x=obs_number$wave, fill="darkgreen", binwidth = 1)) +
+ggplot(obs_number, aes('Number of Observations')) +
+  geom_bar(fill = "#0073C2FF") +
     ggtitle("Figure 2: Total number of C01 observations")
   
+ggplot(data=obs_number, aes(x=wave)) + 
+      geom_bar()
 
 ```
 
