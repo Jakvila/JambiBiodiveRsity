@@ -21,7 +21,16 @@ bss.cons <- c(min(colSums(abund_c01)*2))  # or use the more conservative approac
 bss
 bss.cons
 
-dm <- iNEXT(abund_c01, q = c(0, 1, 2), datatype =  "abundance", endpoint = bss, nboot = 500)
+
+
+for( i in 1:211){
+paste(dm,) <- iNEXT(abund_c01[,i], q = c(0, 1, 2), datatype =  "abundance", endpoint = bss, nboot = 500)
+
+}
+
+
+dm <- iNEXT(abund_c01[,2], q = c(0, 1, 2), datatype =  "abundance", endpoint = bss, nboot = 50)
+
 dm$DataInfo  # display basic data info
 dm$AsyEst
 
@@ -29,5 +38,10 @@ windows(80/2.54, 20/2.54)
 ggiNEXT(dm, type = 1, facet.var = "site")  # plot diversity indices against sample-size
 
 
-windows(80/2.54, 20/2.54)
-ggiNEXT(dm, type = 3, facet.var = "site")  # plot diversity indices against coverage
+windows(40/2.54, 40/2.54)
+ggiNEXT(dm, type = 3, facet.var = "site") + facet_wrap(~site, nrows=40)  # plot diversity indices against coverage
+
+
+
+
+
