@@ -181,7 +181,7 @@ WI.NL <- plm(formula.NL , data = dataNL, model = "within")
                   
 \[ Y_{i,t} = \alpha_i + \beta_1*X_{1,i,t} + u_{i,t} \]
 alpha is error 
-\[ = \beta_0 + \beta_1*X_{1,i,t} + \alpha_i +  u_{i,t} \]
+\[ = \beta_0 + \beta_1X_{1,i,t} + \alpha_i +  u_{i,t} \]
                   
 two error components alpha_i, u_it
                   
@@ -204,7 +204,7 @@ Ignore error structure: OLS \rightarrow unbiased
                
 $\Rightarrow$ Hausmann Test:
  Alternative: Variable addition
-                
+                  
 FE by within  
                 
                 
