@@ -27,7 +27,11 @@ PalmDataRestricted <- filter(PalmDataRestricted, Size != 0)
 
 table(PalmDataRestricted$wave)
 
-  inputMat <- cbind(PalmDataRestricted$Inputs, PalmDataRestricted$Labour, PalmDataRestricted$Size, PalmDataRestricted$TreeAge^2, PalmDataRestricted$TreeAge, PalmDataRestricted$TreeDensity, PalmDataRestricted$TreeDensity^2) #, PalmDataRestricted$wave)
+  inputMat <- cbind(PalmDataRestricted$Inputs, PalmDataRestricted$Labour, PalmDataRestricted$Size,
+                    PalmDataRestricted$TreeAge, PalmDataRestricted$TreeDensity) #, PalmDataRestricted$wave)
+
+# corrected input matrix after having decided that quadratic term cannot be employed for DEA
+  
   outputVec <- PalmDataRestricted$Production
 
 
@@ -83,7 +87,8 @@ library(ggplot2)
   effplot <- data.frame(eff(deaVRSinputoriented), eff(deaVRSgraph))
 ggplot(data = effplot, aes(effplot$eff.deaVRSinputoriented., effplot$eff.deaVRSgraph.)) +
   geom_point(aes(colour=PalmDataRestricted$wave)) + ggtitle("Input oriented efficiencies with VRS")+
-  theme_classic()
+  theme_minimal()
 
 # scatterplot input-output
 plot(PalmDataRestricted$Production, PalmDataRestricted$Inputs)
+abline(0,0.02945)

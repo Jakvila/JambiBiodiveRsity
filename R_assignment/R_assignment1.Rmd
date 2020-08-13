@@ -104,7 +104,7 @@ In the 2018 round, slightly less than 10% of the sample could not be visited, ei
 
 ```{r echo=FALSE, results='asis', message=FALSE, fig.height=4.5, fig.width=8, warning=F}
 library(knitr)
-library(data.table)
+ 
 library(ggplot2)
 
 VegetationData2018 <- read.csv("VegetationData2018.csv")
