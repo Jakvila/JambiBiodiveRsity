@@ -134,6 +134,7 @@ names(TC_inef_graph) <- c("hid", "inef_growth", "TC")
 
 plot(TC_inef_graph$inef_growth, TC_inef_graph$TC)
 
+# test graph 
 ggplot(TC_inef_graph, aes( x = inef_growth, y = TC)) +
         geom_point(color = "red") +
         geom_text_repel(aes(label =hid),
@@ -144,11 +145,13 @@ ggplot(TC_inef_graph, aes( x = inef_growth, y = TC)) +
         ggtitle("Inefficiency growth and technical change 2012 to 2015") +
         theme_classic()
 
-# +geom_smooth(method = "lm")
+
+##############################################################################
+# 1st graph for 12-15
 
 # inefficiency growth and Technical Efficiency change 2012 - 2015
 
-
+# data restriction 
 EC_inef_graph1215 <- as.data.frame(cbind(hids_1215, Malmquist2012_15$ec))
 names(EC_inef_graph1215) <- c("hid", "EC")
 
@@ -160,6 +163,7 @@ names(EC_inef_graph1215) <- c("hid", "inef_growth", "EC")
 
 plot(EC_inef_graph1215$inef_growth, EC_inef_graph1215$EC)
 
+# graph 12-15
 ggplot(EC_inef_graph1215, aes( x = (1 - inef_growth), y = EC)) +
   geom_vline (xintercept = 0, linetype = "dotted") +
   geom_point(color = "red") +
@@ -168,14 +172,19 @@ ggplot(EC_inef_graph1215, aes( x = (1 - inef_growth), y = EC)) +
                   box.padding   = 0.1, 
                   point.padding = 0.5,
                   segment.color = 'grey25') +
-  ggtitle("Inefficiency and MPI changes 2012 to 2015") +
+  # ggtitle("Environmental performance growth and technical efficiency change from 2012 to 2015") +
   theme_classic() +
+  xlim(0, 2) +
+  ylim(0,4) +
+  xlab("Environmental performance growth") +
+  ylab("MPI technical efficiency change") + 
   geom_smooth(method = "lm")
 
 
-##############################################################################
-# 2nd graph for 15-18
+###################################################
+# Environmental performance growth and general Malmquist Productivity 15-18
 
+# data restriction
 MPI_inef_graph2 <- as.data.frame(cbind(hids_1518, Malmquist2015_18$mq))
 names(MPI_inef_graph2) <- c("hid", "MPI")
 
@@ -186,7 +195,8 @@ names(MPI_inef_graph2) <- c("hid", "inef_growth", "MPI")
 
 plot(MPI_inef_graph2$inef_growth, MPI_inef_graph2$MPI)
 
-ggplot(MPI_inef_graph2, aes( x = (1 - inef_growth), y = MPI)) +
+# graph 15 -18
+ggplot(MPI_inef_graph2, aes( x = inef_growth*(-1) , y = MPI )) +
   geom_vline (xintercept = 0, linetype = "dotted") +
   geom_point(color = "red") +
   geom_text_repel(aes(label =hid),
@@ -194,13 +204,80 @@ ggplot(MPI_inef_graph2, aes( x = (1 - inef_growth), y = MPI)) +
                   box.padding   = 0.1, 
                   point.padding = 0.5,
                   segment.color = 'grey25') +
-  ggtitle("Inefficiency and MPI changes 2015 to 2018") +
+    xlab("Environmental performance growth") +
+    ylab("MPI technical efficiency change") + 
+    theme_classic() +
+    geom_smooth(method = "lm") 
+# xlim(0, 2) +
+# ylim(0,4) +
+  # + ggtitle("Environmental performance growth and technical efficiency change from 2015 to 2018") 
+
+
+#########################  added October 18th, 2020
+######################### Environmental performance growth and technical change for 2015 - 2018
+
+# data restriction
+TC_inef_graph_1518 <- as.data.frame(cbind(hids_1518, Malmquist2015_18$tc))
+names(TC_inef_graph_1518) <- c("hid", "TC")
+
+TC_inef_graph_1518   <- merge(ddfchange, TC_inef_graph_1518, by= "hid")
+TC_inef_graph_1518   <- subset(TC_inef_graph_1518, select = c(1, 7, 8))
+TC_inef_graph_1518[,3] <- as.numeric(as.character(TC_inef_graph_1518[,3]))
+names(TC_inef_graph_1518) <- c("hid", "inef_growth", "tc")
+
+plot(TC_inef_graph_1215$inef_growth, TC_inef_graph_1215$tc)
+
+# technical change graph 15 - 18
+ggplot(TC_inef_graph_1518, aes( x = tc , y = inef_growth )) +
+  geom_vline (xintercept = 1, linetype = "dotted") +
+  geom_hline (yintercept = 0, linetype = "dotted") +
+  geom_point(color = "red") +
+  geom_text_repel(aes(label =hid),
+                  size =2.5,
+                  box.padding   = 0.1, 
+                  point.padding = 0.5,
+                  segment.color = 'grey25') +
+  xlab("Technical change with desirable output") +
+  ylab("Environmental performance growth") + 
   theme_classic() +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm" , se = FALSE ) +
+ xlim(0.5, 1.5) +
+ ylim(-1, 1.5)
 
+############ same graph for technical EFFICIENCY CHANGE 
 
+# data restriction
+EC_inef_graph_1518 <- as.data.frame(cbind(hids_1518, Malmquist2015_18$ec))
+names(EC_inef_graph_1518) <- c("hid", "EC")
 
-# write the first LaTeX table for the first overview
+EC_inef_graph_1518   <- merge(ddfchange, EC_inef_graph_1518, by= "hid")
+EC_inef_graph_1518   <- subset(EC_inef_graph_1518, select = c(1, 7, 8))
+EC_inef_graph_1518[,3] <- as.numeric(as.character(EC_inef_graph_1518[,3]))
+names(EC_inef_graph_1518) <- c("hid", "inef_growth", "ec")
+
+plot(EC_inef_graph_1518$inef_growth, EC_inef_graph_1518$ec)
+
+# efficiency change graph 15 -18
+ggplot(EC_inef_graph_1518, aes( x = ec , y = inef_growth )) +
+  geom_vline (xintercept = 1, linetype = "dotted") +
+  geom_hline (yintercept = 0, linetype = "dotted") +
+  geom_point(color = "red") +
+  geom_text_repel(aes(label =hid),
+                  size =2.5,
+                  box.padding   = 0.1, 
+                  point.padding = 0.5,
+                  segment.color = 'grey25') +
+  xlab("Technical efficiency change with desirable output") +
+  ylab("Environmental performance growth") + 
+  theme_classic() +
+  geom_smooth(method = "lm" , se = FALSE ) +
+  xlim(0, 4) +
+  ylim(-1, 2)
+
+#######################################################################################
+################## Table with all environmental inefficiency and growth rates #########
+################## included in the appendix ###########################################
+
 
 library(stargazer)
 library(knitr)

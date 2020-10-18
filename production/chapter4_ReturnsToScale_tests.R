@@ -1,7 +1,7 @@
 
 library(rDEA)
 
-# used inputs: Size, Labour and Inputs
+# used inputs: Size, Labour and Inputs (Agrochemical use)
 
  rts.test(xMat, yVec, W=NULL, model = "input", H0= "constant", bw= "cv", B= 100, alpha = 0.05)
 
@@ -33,6 +33,16 @@ rts.test(inputMat, outputVec, W=NULL, model = "output", H0= "non-increasing", bw
 
 # for input orientation: for any test statistic, we have INCREASING returns to scale. For output orientation
 # we only have increasing returns to scale according to pvalue48, i.e. for ratio of means/medians
+
+
+rts_test_table <- data.frame(rbind(c("Test for non-increasing returns to scale",
+                                     "0.81", "-0.035"),
+                                   c(NA, "not rejected", "not rejected"),
+                                   c("Test for constant returns to scale",
+                                     "0.6447", "-0.0744"),
+                                   c(NA, "not rejected", "rejected")))
+names (rts_test_table) <- c(NA, "W_hat 4.5 test statistic", "w_hat 4.8 test statistic")
+kable(rts_test_table, row.names = T, "latex")
 
 
 summary(rtstestinp)
