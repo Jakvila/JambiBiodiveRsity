@@ -61,7 +61,7 @@ envperf_plot4 <- ggplot(PalmDataWithEffScores, aes( x = Inputs, y = ( 1 - ddfsco
   ggtitle("Input 3") +
   geom_smooth(method = "lm") +
   theme_classic() +
-  xlab("Agrochemicals (kg)") + 
+  xlab("Agrochemicals (kg)") +  
   ylab("Environmental performance ") + 
   xlim(0, 4000)
 
@@ -104,12 +104,4 @@ ggplot(PalmDataRestricted, aes( x = ShannonEst, y = Production)) +
   theme_classic() + 
   ylab("CPO Production (kg)")
 
-ggplot(PalmDataRestricted, aes( x = ShannonEst, y = Production)) +
-  geom_point(aes(colour = PalmDataRestricted$wave,
-                 size = PalmDataRestricted$Size)) +
-  labs(colour = "Wave", size = "Plot size (ha)") +
-  ggtitle("Effective number of species and production") +
-  geom_smooth(method = "lm") +
-  theme_classic() + 
-  ylab("Production (kg)") # the same graph including the plot size
 
